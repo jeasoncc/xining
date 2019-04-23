@@ -23,14 +23,14 @@ var routes = [
     name: "Sales",
     icon: "ni ni-tv-2 text-primary",
     component: Sales,
-    layout: "/admin"
+    layout: "/Shopping"
   },
   {
     path: "/tourBus",
     name: "tourBus",
     icon: "ni ni-tv-2 text-primary",
     component: tourBus,
-    layout: "/admin"
+    layout: "/Shopping"
   },
   {
     path: "/ShoppingProduct",
@@ -58,14 +58,14 @@ var routes = [
     name: "Maps",
     icon: "ni ni-pin-3 text-orange",
     component: Maps,
-    layout: "/admin"
+    layout: "/Shopping"
   },
   {
     path: "/user-profile",
     name: "User Profile",
     icon: "ni ni-single-02 text-yellow",
     component: Profile,
-    layout: "/admin"
+    layout: "/Shopping"
   },
   {
     path: "/tables",

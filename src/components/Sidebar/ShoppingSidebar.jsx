@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+// import ListItemIcon from '@material-ui/core/ListItemIcon';
+// import DraftsIcon from '@material-ui/icons/Star';
 // import ListSubheader from '@material-ui/core/ListSubheader';
 
 const styles = theme => ({
@@ -32,10 +34,13 @@ function PinnedSubheaderList(props) {
   }
   return (
     <List className={classes.root} subheader={<li />}>
-          <ul className={classes.ul}>
+          <ul className={classes.ul} style={{background:"#f5f5f5"}}>
             {/* <ListSubheader>{` ${sectionId}`}</ListSubheader> */}
             {arr.map(item => (
-              <ListItem key={`${item}`} divider style={{padding:"10px 6px"}}>
+              <ListItem key={`${item}`}  style={{padding:"10px 6px"}}>
+              {/* <ListItemIcon>
+              </ListItemIcon> */}
+              {/* <DraftsIcon /> */}
                 <ListItemText primary={`item-${item}`} />
               </ListItem>
             ))}

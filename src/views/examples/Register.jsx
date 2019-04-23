@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { register } from "bin/axios/user";
+import PropTypes from 'prop-types';
 // reactstrap components
 import {
   Button,
@@ -18,11 +20,34 @@ class Register extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      userName: '',
-      telephone: '1312921212',
-      password: ''
+      username: '13129546291',
+      password: '123456',
+      passwordRepeat: '123456'
     }
     this.handleChange = this.handleChange.bind(this);
+    this.registerAccount = this.registerAccount.bind(this);
+  }
+  registerAccount() {
+    console.log("sasaa")
+    console.log(this.state)
+    let {username,password,area= "2",passwordRepeat  } = this.state
+    let prams = {username, password, area, passwordRepeat}
+    console.log(prams);
+    /**
+     *  @description 发送登录请求
+     */
+    register(prams).then((res) => {
+      console.log(res)
+        // if(res.retcode === 0) {
+        //   this.context.router.history.push("/Shopping/sales//")
+        // } else {
+        //   console.log("sasa")
+        //   this.setState({
+        //     showError: true
+        //   });
+        //   console.log(this.state.showError)
+        // }
+    })
   }
   handleChange(event) {
     const target = event.target;
@@ -93,17 +118,27 @@ class Register extends React.Component {
                         <i className="ni ni-hat-3" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input name="userName" placeholder="用户名" type="text" value={this.state.userName}  onChange={this.handleChange} />
+                    <Input name="username" placeholder="手机号" type="text" value={this.state.username}  onChange={this.handleChange} />
                   </InputGroup>
                 </FormGroup>
-                <FormGroup>
+                {/* <FormGroup>
                   <InputGroup className="input-group-alternative mb-3">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input name="telephone" placeholder="手机号" type="text"  value={this.state.telephone}  onChange={this.handleChange} />
+                    <Input name="telephone" placeholder="" type="text"  value={this.state.telephone}  onChange={this.handleChange} />
+                  </InputGroup>
+                </FormGroup> */}
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input name="password" placeholder="密码" type="password"   value={this.state.password}  onChange={this.handleChange}/>
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
@@ -113,7 +148,7 @@ class Register extends React.Component {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="密码" type="password" />
+                    <Input name="passwordRepeat" placeholder="再一次输入密码" type="password"   value={this.state.passwordRepeat}  onChange={this.handleChange}/>
                   </InputGroup>
                 </FormGroup>
                 {/* <div className="text-muted font-italic">
@@ -148,7 +183,7 @@ class Register extends React.Component {
                 <Button className="my-1" color="primary"  to="/auth/login" tag={Link}>
                     返回登录
                   </Button>
-                  <Button className="my-1" color="primary"  to="/auth/register"  tag={Link}>
+                  <Button className="my-1" color="primary"  onClick={this.registerAccount}>
                     创建用户
                   </Button>
                 </div>

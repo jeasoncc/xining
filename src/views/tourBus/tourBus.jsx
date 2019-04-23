@@ -6,7 +6,7 @@ export default class tourBus extends React.Component {
     render() {
         return (
             <Container>
-                <QRCode />
+                {/* <QRCode /> */}
                 <RecipeReviewCard name="jeason" ></RecipeReviewCard>
                 <RecipeReviewCard name="mar" ></RecipeReviewCard>
             </Container>

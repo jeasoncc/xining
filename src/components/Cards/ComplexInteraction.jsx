@@ -18,6 +18,7 @@ import { Button } from "reactstrap";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AlertDialog from "components/Dialog/EnSureDialog.jsx"
+import CashDialog from "components/Dialog/CashDialog.jsx"
 const styles = theme => ({
   card: {
     maxWidth: 400,
@@ -85,11 +86,15 @@ class RecipeReviewCard extends React.Component {
             minutes.)
           </Typography>
         </CardContent>
+        <div>
+        <CashDialog />
+        </div>
         <CardActions className={classes.actions} disableActionSpacing>
             {/* <Button color="primary" type="button" size="" className="ml-3" onClick={this.testevent}>
             购买
             </Button> */}
             <AlertDialog></AlertDialog>
+
           {/* <IconButton aria-label="Add to favorites">
             <FavoriteIcon />
           </IconButton>

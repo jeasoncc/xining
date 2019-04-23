@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import Fastfood from '@material-ui/icons/Fastfood';
+import Business from '@material-ui/icons/Business';
 import { AccountCircle } from '@material-ui/icons';
+import { ShoppingCart, PinDrop, Home} from '@material-ui/icons';
 import {Link} from "react-router-dom"
 const styles = {
   root: {
@@ -35,9 +36,11 @@ class SimpleBottomNavigation extends React.Component {
         style={{ position: "fixed",
                   bottom: 0}}
       >
-        <BottomNavigationAction label="观光游览" icon={<RestoreIcon />} to="/admin/tourBus/"  component={Link}/>
-        <BottomNavigationAction label="商城" icon={<FavoriteIcon />} to="/Shopping/ShoppingProduct/"  component={Link}/>
-        <BottomNavigationAction label="我的" icon={<AccountCircle />} />
+        <BottomNavigationAction label="主页"  icon={<Home />} to="/Shopping/sales/"  component={Link}/>
+        <BottomNavigationAction label="观光游览" icon={<Fastfood />} to="/Shopping/tourBus/"  component={Link}/>
+        <BottomNavigationAction label="商城" icon={<Business />} to="/Shopping/ShoppingProduct/"  component={Link}/>
+        <BottomNavigationAction label="智慧景区" icon={<PinDrop />} to="/Shopping/maps/"  component={Link}/>
+        {/* <BottomNavigationAction label="我的" icon={<AccountCircle />} to="/admin/user-profile" component={Link}/> */}
       </BottomNavigation>
     );
   }

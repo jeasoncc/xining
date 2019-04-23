@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // reactstrap components
+import { login } from "bin/axios/user";
+import { Alert } from "reactstrap";
+import PropTypes from 'prop-types';
 import {
   Button,
   Card,
@@ -14,14 +17,29 @@ import {
   Row,
   Col
 } from "reactstrap";
+
+// const history = createBrowserHistory();
+// const location = history.location;
+// const unlisten = history.listen((location, action) => {
+//   // location is an object like window.location
+//   console.log(action, location.pathname, location.state);
+// });
 class Login extends React.Component {
+  static contextTypes = {
+    router: PropTypes.object
+  }
   constructor(props) {
     super(props)
     this.state = {
-      telephone: '',
-      password: ''
+      username: '18888888881',
+      password: '123456',
+      showError: false
     }
     this.handleChange = this.handleChange.bind(this);
+    this.login = this.login.bind(this);
+  }
+  componentDidMount() {
+
   }
   handleChange(event) {
     const target = event.target;
@@ -33,7 +51,25 @@ class Login extends React.Component {
       [name]: value
     });
   }
-
+  login() {
+    let {username,password,area= "2" } = this.state
+    let prams = {username,password,area}
+    console.log(prams);
+    /**
+     *  @description 发送登录请求
+     */
+    login(prams).then((res) => {
+        if(res.retcode === 0) {
+          this.context.router.history.push("/Shopping/sales//")
+        } else {
+          console.log("sasa")
+          this.setState({
+            showError: true
+          });
+          console.log(this.state.showError)
+        }
+    })
+  }
   render() {
     return (
         <Col lg="5" md="7" className="py-5">
@@ -75,7 +111,7 @@ class Login extends React.Component {
             </CardHeader> */}
             <CardBody className="px-lg-5 py-lg-5">
               <div className="text-center text-muted mb-4">
-                <small>请登录</small>
+                <small>please login</small>
               </div>
               <Form role="form">
                 <FormGroup className="mb-3">
@@ -85,7 +121,7 @@ class Login extends React.Component {
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input name="telephone" placeholder="手机号" type="text" value={this.state.telephone}  onChange={this.handleChange} />
+                    <Input name="username" placeholder="手机号" type="text" value={this.state.username}  onChange={this.handleChange} />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
@@ -98,6 +134,9 @@ class Login extends React.Component {
                     <Input name="password" placeholder="密码" type="password" value={this.state.password}  onChange={this.handleChange} />
                   </InputGroup>
                 </FormGroup>
+                <Alert color="danger" isOpen={this.state.showError}>
+                  <strong>Danger!</strong> 您输入的密码有误!
+                </Alert>
                 {/* <div className="custom-control custom-control-alternative custom-checkbox">
                   <input
                     className="custom-control-input"
@@ -112,7 +151,7 @@ class Login extends React.Component {
                   </label>
                 </div> */}
                 <div className="text-center">
-                  <Button className="my-1" color="primary"  to="/admin/user-profile" tag={Link}>
+                  <Button className="my-1" color="primary"  onClick={this.login} >
                     登录
                   </Button>
                   <Button className="my-1" color="primary"  to="/auth/register"  tag={Link}>

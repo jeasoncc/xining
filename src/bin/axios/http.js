@@ -1,5 +1,5 @@
 import axios from "axios";
-import qs from "qs";
+// import qs from "qs";
 // import { getKey, setKey } from "./views/api/base";
 
 // axios.defaults.timeout = 5000; //响应时间
@@ -7,8 +7,8 @@ import qs from "qs";
 //   "application/x-www-form-urlencoded"; //配置请求头
 // axios.defaults.baseURL = "http://localhost:8080/ArmyCreate/"; //配置接口地址
 // axios.defaults.baseImgURL = "http://localhost:8080";
-axios.defaults.baseURL = "http://182.254.165.115:8080/ArmyCreate/"; //配置接口地址
-axios.defaults.baseImgURL = "http://182.254.165.115:8080";
+axios.defaults.baseURL = "http://localhost:8585"; //配置接口地址
+// axios.defaults.baseImgURL = "http://182.254.165.115:8080";
 
 const service = axios.create({
   baseURL: axios.defaults.baseURL,
@@ -27,8 +27,8 @@ service.interceptors.request.use(
     //   config.headers["key"] = getKey(); // 让每个请求携带自定义token 请根据实际情况自行修改
     // }
     if (config.method === "post") {
-      config.data = qs.stringify(config.data);
-      config.headers["Content-Type"] = "application/x-www-form-urlencoded";
+      // config.data = qs.stringify(config.data);
+      config.headers["Content-Type"] = "application/json";
     }
     return config;
   },
@@ -39,6 +39,7 @@ service.interceptors.request.use(
 // respone拦截器
 service.interceptors.response.use(
   response => {
+    console.log(response)
     if (response.headers.key) {
       // setKey(response.headers.key);
     }
