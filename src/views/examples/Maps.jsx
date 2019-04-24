@@ -5,7 +5,10 @@ import { Card, Container, Row } from "reactstrap";
 // import { Map } from 'react-amap';
 // core components
 import QRDialog from "components/Dialog/QRDialog";
-
+import { observable } from "mobx";
+import {observer} from 'mobx-react';
+import  appState from "store/store";
+// import { showDia } from "store/store";
 const AMap = window.AMap;
 
 const AMapUI = window.AMapUI
@@ -25,7 +28,12 @@ function SMap() {
 }
 console.log(AMap)
 // map()
+@observer
 class Maps extends React.Component {
+  @observable showModel = false;
+  constructor(props) {
+    super(props)
+  }
   componentDidMount() {
   //   console.log(document.querySelector("#container"))
     var mapObj = new AMap.Map('container', {
@@ -44,6 +52,8 @@ class Maps extends React.Component {
         initPage(SimpleMarker);
     });
     mapObj.on('click', function(ev) {
+      console.log(this.props.appState)
+
       // 触发事件的对象
       var target = ev.target;
 
@@ -81,8 +91,8 @@ class Maps extends React.Component {
           position: [113.93887, 22.52286]
       });
       obj1.on('click', (res) => {
-        console.log("sasa")
-        console.log(res)
+        appState.initTimer()
+        // console.log(res)
       })
       new SimpleMarker({
 
@@ -155,9 +165,9 @@ class Maps extends React.Component {
   render() {
     return (
       <>
-        <QRDialog exampleModal={true}></QRDialog>
         {/* <Header /> */}
         {/* Page content */}
+        <QRDialog   exampleModal={appState.timer} appState={appState}></QRDialog>
         <Container className="mt--14" fluid>
           <Row>
             <div className="col">

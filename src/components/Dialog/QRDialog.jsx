@@ -5,6 +5,10 @@ import {
   Modal,
 } from "reactstrap";
 import QRCode from "components/QRCode";
+import { observable, autorun } from 'mobx';
+import {observer} from 'mobx-react';
+
+@observer
 class Modals extends React.Component {
    constructor(props) {
      super(props);
@@ -12,10 +16,11 @@ class Modals extends React.Component {
   state = {
     exampleModal: false
   };
-  toggleModal = state => {
-    this.setState({
-      [state]: !this.state[state]
-    });
+  toggleModal = () => {
+    // showDia.set("show", false)
+    // console.log(appState)
+    // console.log(appState.get())
+    this.props.appState.resetTimer();
   };
   render() {
     return (
@@ -36,6 +41,7 @@ class Modals extends React.Component {
         >
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLabel">
+            {/* Seconds passed: {this.props.appState} */}
               Modal title
             </h5>
             <button

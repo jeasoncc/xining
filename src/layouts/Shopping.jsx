@@ -6,7 +6,13 @@ import AdminFooter from "components/Footers/AdminFooter.jsx";
 // import Producter from "components/Producter"
 // import Grid from '@material-ui/core/Grid';
 import AdminNavbar from "components/Navbars/mNavbar.jsx";
-export default class Shopping extends React.Component {
+import  appState from "store/store";
+import {observer} from 'mobx-react';
+@observer
+class Shopping extends React.Component {
+  constructor(props) {
+    super(props)
+  }
     componentDidUpdate(e) {
         document.documentElement.scrollTop = 0;
         document.scrollingElement.scrollTop = 0;
@@ -15,7 +21,7 @@ export default class Shopping extends React.Component {
     getRoutes = routes => {
         return routes.map((prop, key) => {
           if (prop.layout === "/Shopping") {
-            // console.log(prop)
+            console.log(this.props.appState.timer)
             return (
               <Route
                 path={prop.layout + prop.path}
@@ -45,10 +51,12 @@ export default class Shopping extends React.Component {
             <div  style={{paddingBottom:"4rem","paddingTop": "5rem"}}>
                <AdminNavbar name="sasa"/>
 
-              <Switch>{this.getRoutes(routes)}</Switch>
+              <Switch >{this.getRoutes(routes)}</Switch>
               <AdminFooter></AdminFooter>
               {/* <AdminFooter></AdminFooter> */}
             </ div>
         )
     }
 }
+
+export default Shopping
