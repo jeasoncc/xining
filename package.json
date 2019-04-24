@@ -24,10 +24,10 @@
   },
   "homepage": "https://demos.creative-tim.com/argon-dashboard-react/",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "compile-sass": "node-sass src/assets/scss/argon-dashboard-react.scss src/assets/css/argon-dashboard-react.css",
     "minify-sass": "node-sass src/assets/scss/argon-dashboard-react.scss src/assets/css/argon-dashboard-react.min.css --output-style compressed",
@@ -49,6 +49,7 @@
     "chart.js": "2.7.3",
     "classnames": "2.2.6",
     "history": "^4.9.0",
+    "mobx": "^5.9.4",
     "moment": "2.24.0",
     "node-sass": "4.11.0",
     "nouislider": "13.1.1",
@@ -67,9 +68,12 @@
     "reactstrap": "7.1.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.4.0",
     "@types/googlemaps": "3.30.18",
     "@types/markerclustererplus": "2.1.33",
     "@types/react": "16.8.7",
+    "customize-cra": "^0.2.12",
+    "react-app-rewired": "^2.1.2",
     "typescript": "3.3.3333"
   }
 }

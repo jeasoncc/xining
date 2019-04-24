@@ -15,8 +15,10 @@ import {
   Row,
   Col
 } from "reactstrap";
-
+import { observable } from "mobx";
 class Navbars extends React.Component {
+  @observable title = "";
+  @observable finished = false;
   render() {
     return (
       <>
@@ -78,11 +80,12 @@ class Navbars extends React.Component {
               <Nav className="ml-lg-auto" navbar>
                 <NavItem>
                   <NavLink
-                    to="/Shopping/user-profile"
+
                     className="nav-link-icon"
                     onClick={() => {
                       console.log("saas")
                     }}
+                    to="/Shopping/user-profile"
                     tag={Link}
                   >
                     <i className="ni ni-favourite-28" />
@@ -94,10 +97,10 @@ class Navbars extends React.Component {
                 <NavItem>
                   <NavLink
                     className="nav-link-icon"
-                    href="#pablo"
-                    onClick={e => e.preventDefault()}
+                    to="/Shopping/changePassword"
+                    tag={Link}
                   >
-                    <i className="ni ni-notification-70" />
+                    <i className="ni ni-key-25" />
                     <span className="nav-link-inner--text d-lg-none">
                       修改密码
                     </span>
@@ -105,14 +108,11 @@ class Navbars extends React.Component {
                 </NavItem>
                 <UncontrolledDropdown nav>
                   <NavLink
-                    aria-expanded={false}
-                    aria-haspopup={true}
                     className="nav-link-icon"
                     data-toggle="dropdown"
-                    href="#pablo"
                     id="navbar-default_dropdown_1"
-                    onClick={e => e.preventDefault()}
-                    role="button"
+                    to="/Shopping/changeInfo"
+                    tag={Link}
                   >
                     <i className="ni ni-settings-gear-65" />
                     <span className="nav-link-inner--text d-lg-none">

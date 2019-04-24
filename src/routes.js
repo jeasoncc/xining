@@ -9,6 +9,8 @@ import Sales from "views/examples/Sales";
 import ShoppingProduct from "views/examples/ShoppingProduct";
 import ShoppingCar from "views/examples/ShoppingCar";
 import tourBus from "views/tourBus/tourBus.jsx";
+import ChangeInfo from "views/user/ChangeInfo";
+import ChangePassword from "views/user/ChangePassword";
 
 var routes = [
   {
@@ -67,6 +69,21 @@ var routes = [
     component: Profile,
     layout: "/Shopping"
   },
+  {
+    path: "/changeInfo",
+    name: "ChangeInfo",
+    icon: "ni ni-single-02 text-yellow",
+    component: ChangeInfo,
+    layout: "/Shopping"
+  },
+  {
+    path: "/changePassword",
+    name: "ChangePassword",
+    icon: "ni ni-single-02 text-yellow",
+    component: ChangePassword,
+    layout: "/Shopping"
+  },
+
   {
     path: "/tables",
     name: "Tables",
