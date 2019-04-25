@@ -18,14 +18,6 @@ function FMap() {
     <div id="container" style={{height:"100%"}}></div>
   )
 }
-function SMap() {
-
-  return (
-    <>
-      <FMap />
-    </>
-  )
-}
 console.log(AMap)
 // map()
 @observer
@@ -33,8 +25,16 @@ class Maps extends React.Component {
   @observable showModel = false;
   constructor(props) {
     super(props)
+    this.handleClick = this.handleClick.bind(this);
+
   }
+
+  handleClick() {
+    this.props.appState.initTimer()
+  }
+
   componentDidMount() {
+    var that = this
   //   console.log(document.querySelector("#container"))
     var mapObj = new AMap.Map('container', {
       zoom:15,//级别
@@ -91,7 +91,7 @@ class Maps extends React.Component {
           position: [113.93887, 22.52286]
       });
       obj1.on('click', (res) => {
-        appState.initTimer()
+        that.handleClick()
         // console.log(res)
       })
       new SimpleMarker({
@@ -172,7 +172,7 @@ class Maps extends React.Component {
           <Row>
             <div className="col">
               <Card className="shadow border-0 sometest" >
-                < SMap ></SMap>
+                < FMap ></FMap>
                 {/* <Map amapkey={"09ba159c262da4f9b6695f6bc9a10311"}  /> */}
               </Card>
             </div>
@@ -182,5 +182,9 @@ class Maps extends React.Component {
     );
   }
 }
-
-export default Maps;
+function outFMap() {
+  return (
+    <Maps appState={appState}></Maps>
+  )
+}
+export default outFMap;

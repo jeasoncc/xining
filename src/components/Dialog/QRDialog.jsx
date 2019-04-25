@@ -25,23 +25,13 @@ class Modals extends React.Component {
   render() {
     return (
       <>
-        {/* Button trigger modal */}
-        {/* <Button
-          color="primary"
-          type="button"
-          onClick={() => this.toggleModal("exampleModal")}
-        >
-          Launch demo modal
-        </Button> */}
-        {/* Modal */}
         <Modal
           className="modal-dialog-centered"
           isOpen={this.props.exampleModal}
-          toggle={() => this.toggleModal("exampleModal")}
+          // toggle={() => this.toggleModal("exampleModal")}
         >
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLabel">
-            {/* Seconds passed: {this.props.appState} */}
               Modal title
             </h5>
             <button
