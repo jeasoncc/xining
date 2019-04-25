@@ -1,6 +1,6 @@
 import axios from "axios";
 // import qs from "qs";
-// import { getKey, setKey } from "./views/api/base";
+import { getKey, setKey } from "bin/cookie/base";
 
 // axios.defaults.timeout = 5000; //响应时间
 // axios.defaults.headers.post["Content-Type"] =
@@ -23,12 +23,16 @@ service.interceptors.request.use(
     /**
      *  @description 在发送请求之前做某件事
      */
-    // if (getKey()) {
-    //   config.headers["key"] = getKey(); // 让每个请求携带自定义token 请根据实际情况自行修改
-    // }
+    if (getKey()) {
+      config.headers["authorization"] = getKey(); // 让每个请求携带自定义token 请根据实际情况自行修改
+      console.log("jinlaile")
+    } else {
+      // console.log("sasa")
+    }
     if (config.method === "post") {
       // config.data = qs.stringify(config.data);
       config.headers["Content-Type"] = "application/json";
+
     }
     return config;
   },
@@ -40,8 +44,9 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     console.log(response)
-    if (response.headers.key) {
-      // setKey(response.headers.key);
+    if (response.headers.authorization) {
+      console.log("sasa")
+      setKey(response.headers.authorization);
     }
     return response.data;
   },

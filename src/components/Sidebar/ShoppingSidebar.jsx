@@ -8,6 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import DraftsIcon from '@material-ui/icons/Star';
 // import ListSubheader from '@material-ui/core/ListSubheader';
 
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -28,20 +29,15 @@ const styles = theme => ({
 
 function PinnedSubheaderList(props) {
   const { classes } = props;
-  const arr = []
-  for(let i= 0;i<100;i++) {
-    arr.push(i)
-  }
+  const arr = props.items || [1, 2, 3, 4, 5] ;
   return (
     <List className={classes.root} subheader={<li />}>
           <ul className={classes.ul} style={{background:"#f5f5f5"}}>
+              {/* {props.items.name} */}
             {/* <ListSubheader>{` ${sectionId}`}</ListSubheader> */}
             {arr.map(item => (
-              <ListItem key={`${item}`}  style={{padding:"10px 6px"}}>
-              {/* <ListItemIcon>
-              </ListItemIcon> */}
-              {/* <DraftsIcon /> */}
-                <ListItemText primary={`item-${item}`} />
+              <ListItem key={item.id}  style={{padding:"10px 6px"}}>
+                <ListItemText primary={`${item.name}`} />
               </ListItem>
             ))}
           </ul>
