@@ -17,7 +17,7 @@ export default class ShoppingProduct extends React.Component {
     componentDidMount() {
         findGoods().then(res => {
             this.setState({
-                productItems: res.data.item
+                // productItems: res.data.item || []
               });
         })
     }

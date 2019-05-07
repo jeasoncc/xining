@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { register } from "bin/axios/user";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // reactstrap components
 import {
   Button,
@@ -15,14 +15,22 @@ import {
   InputGroup,
   Col
 } from "reactstrap";
+import Modles from "components/Dialog/Modal"
+import {observer} from 'mobx-react';
+import appState from "store/showDialog"
+console.log(appState.timer)
 
+
+@observer
 class Register extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: '13129546291',
-      password: '123456',
-      passwordRepeat: '123456'
+      username: '',
+      nikename: '',
+      password: '',
+      passwordRepeat: '',
+      retunMsg:""
     }
     this.handleChange = this.handleChange.bind(this);
     this.registerAccount = this.registerAccount.bind(this);
@@ -30,23 +38,33 @@ class Register extends React.Component {
   registerAccount() {
     console.log("sasaa")
     console.log(this.state)
-    let {username,password,area= "2",passwordRepeat  } = this.state
-    let prams = {username, password, area, passwordRepeat}
+    let {username,password,nikename,passwordRepeat  } = this.state
+    let prams = {username, password, nikename, passwordRepeat}
     console.log(prams);
     /**
      *  @description 发送登录请求
      */
     register(prams).then((res) => {
-      console.log(res)
-        // if(res.retcode === 0) {
-        //   this.context.router.history.push("/Shopping/sales//")
-        // } else {
-        //   console.log("sasa")
-        //   this.setState({
-        //     showError: true
-        //   });
-        //   console.log(this.state.showError)
-        // }
+        console.log(res)
+        this.setState({
+          retunMsg:res.msg
+        })
+        this.props.someTest.initTimer()
+        if(res.retcode === 0) {
+          // this.context.router.history.push("/Shopping/sales/")
+          this.props.someTest.successInfo()
+          console.log(this.props.someTest.info)
+          this.setState({
+              username: '',
+              nikename: '',
+              password: '',
+              passwordRepeat: ''
+          })
+        } else {
+          this.props.someTest.errorInfo()
+          console.log(this.props.someTest.info)
+          // this.props.someTest.initTimer
+        }
     })
   }
   handleChange(event) {
@@ -67,6 +85,7 @@ class Register extends React.Component {
     event.preventDefault();
   }
   render() {
+
     return (
       <>
         <Col lg="6" md="8"  className="py-5">
@@ -119,6 +138,16 @@ class Register extends React.Component {
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input name="username" placeholder="手机号" type="text" value={this.state.username}  onChange={this.handleChange} />
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative mb-3">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-hat-3" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input name="nikename" placeholder="昵称" type="text" value={this.state.nikename}  onChange={this.handleChange} />
                   </InputGroup>
                 </FormGroup>
                 {/* <FormGroup>
@@ -186,7 +215,11 @@ class Register extends React.Component {
                   <Button className="my-1" color="primary"  onClick={this.registerAccount}>
                     创建用户
                   </Button>
+                  {/* <Button className="my-1" color="primary"  onClick={this.props.someTest.initTimer}>
+                    ssss
+                  </Button> */}
                 </div>
+                <Modles com={this.state.retunMsg} someTest={appState}></Modles>
               </Form>
             </CardBody>
           </Card>
@@ -195,5 +228,9 @@ class Register extends React.Component {
     );
   }
 }
-
-export default Register;
+function RegisterFather(props) {
+  return (
+    <Register someTest={appState}></Register>
+  )
+}
+export default RegisterFather;

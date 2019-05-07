@@ -38,8 +38,9 @@ class Maps extends React.Component {
   //   console.log(document.querySelector("#container"))
     var mapObj = new AMap.Map('container', {
       zoom:15,//级别
-      center: [113.9553, 22.54735 ],//中心点坐标
-      viewMode:'3D'//使用3D视图
+      center: [101.766872,36.710194 ],//中心点坐标
+      layers: [new AMap.TileLayer.Satellite()],
+      // viewMode:'3D'//使用3D视图
     });
     var clickHandler = function(e) {
       alert('您在[ '+e.lnglat.getLng()+','+e.lnglat.getLat()+' ]的位置点击了地图！');
@@ -52,7 +53,7 @@ class Maps extends React.Component {
         initPage(SimpleMarker);
     });
     mapObj.on('click', function(ev) {
-      console.log(this.props.appState)
+      // console.log(this.props.appState)
 
       // 触发事件的对象
       var target = ev.target;
@@ -65,12 +66,12 @@ class Maps extends React.Component {
 
       // 触发事件类型
       var type = ev.type;
-      console.log(target)
-      console.log(lnglat)
+      console.log(that.props.router)
+      // console.log(lnglat)
 
-      console.log(pixel)
-      console.log(type)
-      console.log(ev)
+      // console.log(pixel)
+      // console.log(type)
+      // console.log(ev)
     });
     function initPage(SimpleMarker) {
 
@@ -84,11 +85,11 @@ class Maps extends React.Component {
           iconTheme: 'default',
 
           //背景图标样式
-          iconStyle: 'blue',
+          iconStyle: 'red',
 
           //...其他Marker选项...，不包括content
           map: mapObj,
-          position: [113.93887, 22.52286]
+          position: [101.766872,36.710194 ]
       });
       obj1.on('click', (res) => {
         that.handleClick()
@@ -103,7 +104,7 @@ class Maps extends React.Component {
         iconTheme: 'default',
 
         //背景图标样式
-        iconStyle: 'blue',
+        iconStyle: 'red',
 
         //...其他Marker选项...，不包括content
         map: mapObj,
@@ -138,36 +139,36 @@ class Maps extends React.Component {
         mapObj.addControl(toolbar);
       });
 
-      mapObj.plugin('AMap.Geolocation', function () {
-       const geolocation = new AMap.Geolocation({
-            enableHighAccuracy: true,//是否使用高精度定位，默认:true
-            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
-            maximumAge: 0,           //定位结果缓存0毫秒，默认：0
-            convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
-            showButton: true,        //显示定位按钮，默认：true
-            buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
-            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
-            showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
-            showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
-            panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
-            zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
-        });
-        mapObj.addControl(geolocation);
-        geolocation.getCurrentPosition();
-        AMap.event.addListener(geolocation, 'complete', (res) => {
-          console.log(res)
-        });//返回定位信息
-        AMap.event.addListener(geolocation, 'error', () => {
-          console.log("error")
-        });      //返回定位出错信息
-      });
+      // mapObj.plugin('AMap.Geolocation', function () {
+      //  const geolocation = new AMap.Geolocation({
+      //       enableHighAccuracy: true,//是否使用高精度定位，默认:true
+      //       timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+      //       maximumAge: 0,           //定位结果缓存0毫秒，默认：0
+      //       convert: true,           //自动偏移坐标，偏移后的坐标为高德坐标，默认：true
+      //       showButton: true,        //显示定位按钮，默认：true
+      //       buttonPosition: 'LB',    //定位按钮停靠位置，默认：'LB'，左下角
+      //       buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+      //       showMarker: true,        //定位成功后在定位到的位置显示点标记，默认：true
+      //       showCircle: true,        //定位成功后用圆圈表示定位精度范围，默认：true
+      //       panToLocation: true,     //定位成功后将定位到的位置作为地图中心点，默认：true
+      //       zoomToAccuracy:true      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+      //   });
+      //   mapObj.addControl(geolocation);
+      //   geolocation.getCurrentPosition();
+      //   AMap.event.addListener(geolocation, 'complete', (res) => {
+      //     console.log(res)
+      //   });//返回定位信息
+      //   AMap.event.addListener(geolocation, 'error', () => {
+      //     console.log("error")
+      //   });      //返回定位出错信息
+      // });
   }
   render() {
     return (
       <>
         {/* <Header /> */}
         {/* Page content */}
-        <QRDialog   exampleModal={appState.timer} appState={appState}></QRDialog>
+        <QRDialog   exampleModal={appState.timer} appState={appState} id="jeason"></QRDialog>
         <Container className="mt--14" fluid>
           <Row>
             <div className="col">

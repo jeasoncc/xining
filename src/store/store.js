@@ -1,7 +1,7 @@
 import {observable, action} from 'mobx';
 
 var appState = observable({
-    timer: true
+    timer: false
 });
 appState.resetTimer = action(function reset() {
     appState.timer = false;

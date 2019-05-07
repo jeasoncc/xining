@@ -31,8 +31,9 @@ class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: '18888888881',
-      password: '123456',
+      username: '',
+      password: '',
+      sort:1,
       showError: false
     }
     this.handleChange = this.handleChange.bind(this);
@@ -43,7 +44,7 @@ class Login extends React.Component {
   }
   handleChange(event) {
     const target = event.target;
-    console.log(event.target.value)
+    console.log(target.type)
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
 
@@ -52,8 +53,8 @@ class Login extends React.Component {
     });
   }
   login() {
-    let {username,password,area= "2" } = this.state
-    let prams = {username,password,area}
+    let {username,password,sort  } = this.state
+    let prams = {username,password,sort}
     console.log(prams);
     /**
      *  @description 发送登录请求
@@ -134,6 +135,48 @@ class Login extends React.Component {
                     <Input name="password" placeholder="密码" type="password" value={this.state.password}  onChange={this.handleChange} />
                   </InputGroup>
                 </FormGroup>
+                <Row>
+                <div className="custom-control custom-radio mb-3 ml-3">
+                  <input
+                    className="custom-control-input"
+                    id="customRadio5"
+                    name="sort"
+                    type="radio"
+                    value={1}
+                    onChange={this.handleChange}
+                  />
+                  <label className="custom-control-label" htmlFor="customRadio5">
+                    游客
+                  </label>
+                </div>
+                <div className="custom-control custom-radio mb-3 ml-3">
+                  <input
+                    className="custom-control-input"
+                    id="customRadio6"
+                    name="sort"
+                    type="radio"
+                    value={2}
+                    onChange={this.handleChange}
+                  />
+                  <label className="custom-control-label" htmlFor="customRadio6">
+                    销售
+                  </label>
+                </div>
+                <div className="custom-control custom-radio mb-3 ml-3">
+                  <input
+                    className="custom-control-input"
+                    id="customRadio7"
+                    name="sort"
+                    type="radio"
+                    value={3}
+                    onChange={this.handleChange}
+                  />
+                  <label className="custom-control-label" htmlFor="customRadio7">
+                    司机
+                  </label>
+                </div>
+                </Row>
+
                 <Alert color="danger" isOpen={this.state.showError}>
                   <strong>Danger!</strong> 您输入的密码有误!
                 </Alert>

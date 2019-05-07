@@ -14,17 +14,17 @@ import {
 import Cards from "components/Cards.jsx";
 const items = [
   {
-    src: 'https://picsum.photos/300/150?image=0',
+    src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556271483109&di=5411317c5e0c14a3583eb926826dc383&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181127%2F43503ee26b6d42b1a3ba33dc4681269d.jpeg',
     altText: 'Slide 1',
     caption: 'Slide 1'
   },
   {
-    src: 'https://picsum.photos/300/150?image=1',
+    src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556271607924&di=bf0e72d3a7b772e45852d7e03fce6df1&imgtype=0&src=http%3A%2F%2Fdingyue.nosdn.127.net%2FbXQPQrJhDShHvsmT3gZriRv%3DL69iuGmB7E08Tt1iLeAgP1487314478412.jpg',
     altText: 'Slide 2',
     caption: 'Slide 2'
   },
   {
-    src: 'https://picsum.photos/300/150?image=2',
+    src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556271694236&di=72d9c2f0761c711b06e8d85cf46114f3&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181010%2Fc42146bde8664bf592621c62e4fe18b7.jpeg',
     altText: 'Slide 3',
     caption: 'Slide 3'
   }
@@ -118,6 +118,7 @@ class Sales extends Component {
         activeIndex={activeIndex}
         next={this.next}
         previous={this.previous}
+        collapsedHeight="200px"
       >
         <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
         {slides}
@@ -132,9 +133,9 @@ class Sales extends Component {
 			<Container >
 					<Cards />
 					<br/>
+					{/* <Cards />
 					<Cards />
-					<Cards />
-					<Cards />
+					<Cards /> */}
 
 				{/* <Cards></Cards> */}
 			</Container>

@@ -6,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 // import ListItemIcon from '@material-ui/core/ListItemIcon';
 // import DraftsIcon from '@material-ui/icons/Star';
+import { Badge,Button } from "reactstrap";
 // import ListSubheader from '@material-ui/core/ListSubheader';
 
 
@@ -29,15 +30,87 @@ const styles = theme => ({
 
 function PinnedSubheaderList(props) {
   const { classes } = props;
-  const arr = props.items || [1, 2, 3, 4, 5] ;
+  var i = 1
+  const arr = props.items || [ {
+    name:"apple",
+    id: i++
+    },
+    {
+      name:"apple",
+      id: i++
+      },
+      {
+      name:"apple",
+      id: i++
+      },
+      {
+      name:"apple",
+      id: i++
+      },   {
+        name:"apple",
+        id: i++
+        },
+        {
+        name:"apple",
+        id: i++
+        },
+        {
+        name:"apple",
+        id: i++
+        },   {
+          name:"apple",
+          id: i++
+          },
+          {
+          name:"apple",
+          id: i++
+          },
+          {
+          name:"apple",
+          id: i++
+          },   {
+            name:"apple",
+            id: i++
+            },
+            {
+            name:"apple",
+            id: i++
+            },
+            {
+            name:"apple",
+            id: i++
+            },
+            {
+              name:"apple",
+              id: i++
+              },
+              {
+              name:"apple",
+              id: i++
+              },
+              {
+              name:"apple",
+              id: i++
+              }] ;
   return (
     <List className={classes.root} subheader={<li />}>
-          <ul className={classes.ul} style={{background:"#f5f5f5"}}>
+          <ul className={classes.ul} style={{background:"#fff"}}>
               {/* {props.items.name} */}
             {/* <ListSubheader>{` ${sectionId}`}</ListSubheader> */}
             {arr.map(item => (
               <ListItem key={item.id}  style={{padding:"10px 6px"}}>
-                <ListItemText primary={`${item.name}`} />
+                {/* <ListItemText primary={`${item.name}`} /> */}
+                {/* <Badge
+                  color="info"
+                  href="#pablo"
+                  onClick={e => e.preventDefault()}
+                >
+                  {item.name}
+                </Badge> */}
+                <Button color="info" size="sm" type="button">
+                  <span>{item.name}</span>
+                  <Badge color="Warning">4</Badge>
+                </Button>
               </ListItem>
             ))}
           </ul>

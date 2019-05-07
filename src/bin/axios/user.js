@@ -25,7 +25,7 @@ export function register(params) {
  */
 export function findGoods(params) {
   return request({
-    url: "/app/goods/findGoods",
+    url: "  ",
     method: "post",
     data: params
   })
