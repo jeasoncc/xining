@@ -35,7 +35,7 @@ class Navbars extends React.Component {
         >
           <Container>
             <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
-              Default Color
+               北川河湿地公园
             </NavbarBrand>
             <button
               aria-controls="navbar-default"

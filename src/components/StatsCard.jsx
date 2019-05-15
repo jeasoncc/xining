@@ -13,7 +13,23 @@ import {
 import AddIcon from '@material-ui/icons/Add';
 import Remove from '@material-ui/icons/Remove';
 import Fab from '@material-ui/core/Fab';
+
 class StatsCard extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+        number:1
+    }
+  }
+  componentWillMount() {
+  }
+  componentDidUpdate() {
+    if(this.state.number < 0) {
+      this.setState({
+        number: 0
+      })
+    }
+  }
   render() {
     return (
       <>
@@ -23,7 +39,7 @@ class StatsCard extends React.Component {
               <Row>
                 <div className="col">
                   <CardTitle className="text-uppercase text-muted mb-0">
-                    康师傅方便面
+                    康师傅方便面（{this.state.number}）
                   </CardTitle>
                   <span className="h2 font-weight-bold mb-0">5¥</span>
                 </div>
@@ -51,12 +67,23 @@ class StatsCard extends React.Component {
                   </span>
                 </Button> */}
                 <br/>
-                <Fab size="small" color="primary" aria-label="Add" >
+                <Fab size="small" color="primary" aria-label="Add" onClick={() => {
+                  console.log("sasa")
+                  this.setState({
+                    number: this.state.number+1
+                  })
+                }}>
                   <AddIcon />
                 </Fab>
-                <Fab size="small" color="primary" aria-label="Add" style={{marginLeft:"3rem"}} className="ml-5">
+                <Fab size="small" color="primary" aria-label="Add" style={{marginLeft:"3rem"}} className="ml-5" onClick={() => {
+                  console.log("sasa")
+                  this.setState({
+                    number: this.state.number-1
+                  })
+                }}>
                   <Remove />
                 </Fab>
+
                 {/* <span className="text-nowrap">Since last month</span> */}
               </p>
             </CardBody>

@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import DraftsIcon from '@material-ui/icons/Star';
 import { Badge,Button } from "reactstrap";
 // import ListSubheader from '@material-ui/core/ListSubheader';
-
+import {findGoodsCategory} from "bin/axios/user.js"
 
 const styles = theme => ({
   root: {
@@ -27,7 +27,31 @@ const styles = theme => ({
     padding: 0,
   },
 });
-
+class PinnedSubheaderLists extends React.Component {
+  componentWillMount() {
+    findGoodsCategory().then(res => {
+      console.log(res)
+    })
+  }
+  constructor(props){
+    super(props);
+    this.state = {date: 1 }
+  }
+  render() {
+    return (
+      <>
+       <List>
+        <ListItem>
+          <Button color="info" size="sm" type="button">
+            <span>1111</span>
+            {/* <Badge color="Warning">4</Badge> */}
+          </Button>
+        </ListItem>
+       </List>
+      </>
+    )
+  }
+}
 function PinnedSubheaderList(props) {
   const { classes } = props;
   var i = 1
@@ -122,4 +146,4 @@ PinnedSubheaderList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PinnedSubheaderList);
+export default PinnedSubheaderLists;

@@ -30,32 +30,6 @@ const items = [
   }
 ];
 
-function Welcome(props) {
-	const numbers = [1, 2, 3, 4];
-	const listItems = numbers.map((number) => {
-		return (
-			<Col xs="3" key={number}>
-					{/* <Media className="align-items-center">
-
-					</Media> */}
-					<div className="avatar avatar-lg rounded-circle">
-							<img
-								alt="..."
-								src={require("assets/img/theme/team-4-800x800.jpg")}
-							/>
-					</div>
-					<Button color="link" block size="sm" className="text-muted">link</Button>
-			</Col>
-		)
-	})
-  return (
-				<Container>
-					<Row>
-						{listItems}
-					</Row>
-				</Container>
-		)
-}
 class Sales extends Component {
   constructor(props) {
     super(props);
@@ -114,30 +88,22 @@ class Sales extends Component {
     return (
     <>
       {/* <UserHeader></UserHeader> */}
-      <Carousel
-        activeIndex={activeIndex}
-        next={this.next}
-        previous={this.previous}
-        collapsedHeight="200px"
-      >
-        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-        {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-      </Carousel>
+      <Container >
+        <Carousel
+          activeIndex={activeIndex}
+          next={this.next}
+          previous={this.previous}
+          collapsedHeight="200px"
+        >
+          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+          {slides}
+          <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+          <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+        </Carousel>
+			</Container>
       <br/>
-
-			<Welcome></Welcome>
-			<br/>
-			<Welcome></Welcome>
 			<Container >
 					<Cards />
-					<br/>
-					{/* <Cards />
-					<Cards />
-					<Cards /> */}
-
-				{/* <Cards></Cards> */}
 			</Container>
 
     </>

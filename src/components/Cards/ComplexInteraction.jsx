@@ -19,6 +19,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AlertDialog from "components/Dialog/EnSureDialog.jsx"
 import CashDialog from "components/Dialog/CashDialog.jsx"
+
+
 const styles = theme => ({
   card: {
     maxWidth: 400,
@@ -60,7 +62,7 @@ class RecipeReviewCard extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Card className={classes.card} raised={true} style={{background:"#fff", margin: "1rem 0"}}>
+      <Card className={classes.card} raised={false} style={{background:"#fff", margin: "1rem 0"}}>
         <CardHeader
           avatar={
             <Avatar aria-label="Recipe" className={classes.avatar}>

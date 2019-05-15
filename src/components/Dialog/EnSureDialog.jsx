@@ -25,9 +25,9 @@ class AlertDialog extends React.Component {
         {/* <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
           Open alert dialog
         </Button> */}
-        <AButton color="primary" type="button"  className="ml-3" onClick={this.handleClickOpen}>
+        <AButton color="info" type="button"  className="ml-3" onClick={this.handleClickOpen}>
             购买
-            </AButton>
+        </AButton>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}

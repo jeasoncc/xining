@@ -5,8 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
 import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import {Link} from "react-router-dom"
-import { findGoods } from "bin/axios/user"
-
+import { findGoodsCategory } from "bin/axios/user"
+const test = require("./test")
 export default class ShoppingProduct extends React.Component {
     constructor (props) {
         super(props)
@@ -15,10 +15,8 @@ export default class ShoppingProduct extends React.Component {
         }
     }
     componentDidMount() {
-        findGoods().then(res => {
-            this.setState({
-                // productItems: res.data.item || []
-              });
+        findGoodsCategory().then(res => {
+            console.log(res)
         })
     }
     render() {
@@ -38,16 +36,16 @@ export default class ShoppingProduct extends React.Component {
             <Grid container >
 
                 <Grid item xs={3}>
-                    <PinnedSubheaderList items={this.state.productItems}></PinnedSubheaderList>
+                    <PinnedSubheaderList ></PinnedSubheaderList>
                 </Grid>
                 <Grid item xs={9}>
                     <Grid container  style={{ padding: 20,position: 'relative',
                                                 overflow: 'auto',
                                                 maxHeight: "90vh", }}>
                         <Producter></Producter>
+                        {/* <Producter></Producter>
                         <Producter></Producter>
-                        <Producter></Producter>
-                        <Producter></Producter>
+                        <Producter></Producter> */}
                     </Grid>
                 </Grid>
             </Grid>
