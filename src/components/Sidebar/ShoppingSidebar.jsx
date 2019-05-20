@@ -41,12 +41,18 @@ class PinnedSubheaderLists extends React.Component {
     return (
       <>
        <List>
-        <ListItem>
-          <Button color="info" size="sm" type="button">
-            <span>1111</span>
-            {/* <Badge color="Warning">4</Badge> */}
-          </Button>
-        </ListItem>
+       {
+         this.props.goodsType.map(item => { //这个地方通过this.props.arr接收到父组件传过来的arr，然后在{}里面进行js的循环
+           return (
+              <ListItem>
+                <Button color="info" size="sm" type="button">
+                  <span>{item.name}</span>
+                  {/* <Badge color="Warning">4</Badge> */}
+                </Button>    
+              </ListItem>
+                )
+              })
+            }
        </List>
       </>
     )
