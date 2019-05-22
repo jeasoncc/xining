@@ -44,11 +44,14 @@ class PinnedSubheaderLists extends React.Component {
        {
          this.props.goodsType.map(item => { //这个地方通过this.props.arr接收到父组件传过来的arr，然后在{}里面进行js的循环
            return (
-              <ListItem>
-                <Button color="info" size="sm" type="button">
+              <ListItem key={item.id}>
+                <Button color="info" size="sm" type="button" block
+                 onClick = {() =>
+                  this.props.onClick(item.id)
+                 } >
                   <span>{item.name}</span>
                   {/* <Badge color="Warning">4</Badge> */}
-                </Button>    
+                </Button>
               </ListItem>
                 )
               })
@@ -58,98 +61,8 @@ class PinnedSubheaderLists extends React.Component {
     )
   }
 }
-function PinnedSubheaderList(props) {
-  const { classes } = props;
-  var i = 1
-  const arr = props.items || [ {
-    name:"apple",
-    id: i++
-    },
-    {
-      name:"apple",
-      id: i++
-      },
-      {
-      name:"apple",
-      id: i++
-      },
-      {
-      name:"apple",
-      id: i++
-      },   {
-        name:"apple",
-        id: i++
-        },
-        {
-        name:"apple",
-        id: i++
-        },
-        {
-        name:"apple",
-        id: i++
-        },   {
-          name:"apple",
-          id: i++
-          },
-          {
-          name:"apple",
-          id: i++
-          },
-          {
-          name:"apple",
-          id: i++
-          },   {
-            name:"apple",
-            id: i++
-            },
-            {
-            name:"apple",
-            id: i++
-            },
-            {
-            name:"apple",
-            id: i++
-            },
-            {
-              name:"apple",
-              id: i++
-              },
-              {
-              name:"apple",
-              id: i++
-              },
-              {
-              name:"apple",
-              id: i++
-              }] ;
-  return (
-    <List className={classes.root} subheader={<li />}>
-          <ul className={classes.ul} style={{background:"#fff"}}>
-              {/* {props.items.name} */}
-            {/* <ListSubheader>{` ${sectionId}`}</ListSubheader> */}
-            {arr.map(item => (
-              <ListItem key={item.id}  style={{padding:"10px 6px"}}>
-                {/* <ListItemText primary={`${item.name}`} /> */}
-                {/* <Badge
-                  color="info"
-                  href="#pablo"
-                  onClick={e => e.preventDefault()}
-                >
-                  {item.name}
-                </Badge> */}
-                <Button color="info" size="sm" type="button">
-                  <span>{item.name}</span>
-                  <Badge color="Warning">4</Badge>
-                </Button>
-              </ListItem>
-            ))}
-          </ul>
-    </List>
-  );
-}
 
-PinnedSubheaderList.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+
+
 
 export default PinnedSubheaderLists;

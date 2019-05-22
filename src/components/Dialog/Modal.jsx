@@ -18,7 +18,7 @@ import {
 import appState from "store/showDialog"
 import {observer} from 'mobx-react';
 import PropTypes from 'prop-types';
-console.log(appState.timer)
+// console.log(appState.timer)
 @observer
 class Modals extends React.Component {
   static contextTypes = {
@@ -29,7 +29,7 @@ class Modals extends React.Component {
   };
   toggleModal = state => {
     this.props.someTest.resetTimer();
-    console.log(this.props.someTest.timer)
+    // console.log(this.props.someTest.timer)
 
     // this.setState({
     //   [state]: !this.state[state]

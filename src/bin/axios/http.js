@@ -25,7 +25,7 @@ service.interceptors.request.use(
      */
     if (getKey()) {
       config.headers["authorization"] = getKey(); // 让每个请求携带自定义token 请根据实际情况自行修改
-      console.log("jinlaile")
+      // console.log("jinlaile")
     } else {
       // console.log("sasa")
     }
@@ -43,9 +43,9 @@ service.interceptors.request.use(
 // respone拦截器
 service.interceptors.response.use(
   response => {
-    console.log(response)
+    // console.log(response)
     if (response.headers.authorization) {
-      console.log("sasa")
+      // console.log("sasa")
       setKey(response.headers.authorization);
     }
     return response.data;

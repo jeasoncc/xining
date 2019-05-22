@@ -21,7 +21,7 @@ class Shopping extends React.Component {
     getRoutes = routes => {
         return routes.map((prop, key) => {
           if (prop.layout === "/Shopping") {
-            console.log(this.props.appState.timer)
+            // console.log(this.props.appState.timer)
             return (
               <Route
                 path={prop.layout + prop.path}

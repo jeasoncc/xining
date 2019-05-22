@@ -9,7 +9,8 @@ import Chip from '@material-ui/core/Chip';
 import red from '@material-ui/core/colors/red';
 import {
   CardImg,
-  Button
+  Button,
+  Badge
 } from "reactstrap";
 const styles = theme => ({
   root: {
@@ -18,45 +19,64 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2,
   },
 });
-
 function PaperSheet(props) {
   const { classes } = props;
-
   return (
     <div>
        {
          props.goodList.map(item => { //这个地方通过this.props.arr接收到父组件传过来的arr，然后在{}里面进行js的循环
            return (
-          <Paper className={classes.root} elevation={1} style={{marginBottom:"20px"}}>
+          <Paper className={classes.root} elevation={1}
+                  style={{marginBottom:"20px",
+                          display: props.id === item.cid ? "block":"none",
+                        width: "100%"}}
+                  key={item.id}>
+                  {/* {props.id} */}
             <CardImg src={item.picture}></CardImg>
-            <Typography variant="h5" component="h4">
               {item.name}
               <br/>
               {/* <Button color="primary" type="button">
 
               </Button> */}
 
-            </Typography>
             <Grid
               container
               direction="row"
               justify="space-between"
               alignItems="center"
             >
-            <Chip
+            {/* <Chip
               icon={<MonetizationOn />}
               label={item.price}
               className={classes.chip}
               style={{background: "#ef6c00"}}
               color="primary"
-            />
-            <Chip
+            /> */}
+            {/* <Button color="secondary" disabled size="lg" type="button">
+              {item.price}
+            </Button> */}
+            <Badge color="info" pill>
+              ¥{item.price}
+            </Badge>
+            {/* <Chip
               icon={<AddShoppingCart />}
               label="购买"
               className={classes.chip}
               color="primary"
 
-            />
+            /> */}
+            <Button className="btn-icon btn-3"
+                    color="primary"
+                    type="button"
+                    size="sm"
+                    onClick={
+                      () => props.onClick(item)
+                    }>
+              <span className="btn-inner--icon">
+                <i className="ni ni-cart" />
+              </span>
+              <span className="btn-inner--text">添加</span>
+            </Button>
             </Grid>
             <Typography component="p">
               {item.des}

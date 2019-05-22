@@ -50,3 +50,23 @@ export function findDriverTicket(params) {
     data: params
   })
 }
+/**
+ *  @description 车票购买
+ */
+export function sellTicket(params) {
+  return request({
+    url: "/app/sell/sellTicket",
+    method: "post",
+    data: params
+  })
+}
+/**
+ *  @description 车票购买记录
+ */
+export function findSellTicket(params) {
+  return request({
+    url: "/app/sell/findSellTicket",
+    method: "post",
+    data: params
+  })
+}
