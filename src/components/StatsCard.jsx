@@ -22,6 +22,9 @@ class StatsCard extends React.Component {
     }
   }
   componentWillMount() {
+    this.setState({
+      number: this.props.item.num
+    })
   }
   componentDidUpdate() {
     if(this.state.number < 0) {
@@ -39,9 +42,9 @@ class StatsCard extends React.Component {
               <Row>
                 <div className="col">
                   <CardTitle className="text-uppercase text-muted mb-0">
-                      {this.props.item.name}({this.props.item.num}）
+                      {this.props.item.name}({this.state.number}）
                   </CardTitle>
-                  <span className="h2 font-weight-bold mb-0">5¥</span>
+                  <span className="h2 font-weight-bold mb-0">¥{this.props.item.price}</span>
                 </div>
                 <Col className="col-auto">
                   <div className="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -69,6 +72,7 @@ class StatsCard extends React.Component {
                 <br/>
                 <Fab size="small" color="primary" aria-label="Add" onClick={() => {
                   console.log("sasa")
+                  console.log(this.props.item)
                   this.setState({
                     number: this.state.number+1
                   })
