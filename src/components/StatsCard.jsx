@@ -13,7 +13,10 @@ import {
 import AddIcon from '@material-ui/icons/Add';
 import Remove from '@material-ui/icons/Remove';
 import Fab from '@material-ui/core/Fab';
+import {observer} from "mobx-react";
 
+
+@observer
 class StatsCard extends React.Component {
   constructor(props){
     super(props)
@@ -42,7 +45,7 @@ class StatsCard extends React.Component {
               <Row>
                 <div className="col">
                   <CardTitle className="text-uppercase text-muted mb-0">
-                      {this.props.item.name}({this.state.number}）
+                      {this.props.item.name}({this.props.item.num}）
                   </CardTitle>
                   <span className="h2 font-weight-bold mb-0">¥{this.props.item.price}</span>
                 </div>
@@ -73,6 +76,8 @@ class StatsCard extends React.Component {
                 <Fab size="small" color="primary" aria-label="Add" onClick={() => {
                   console.log("sasa")
                   console.log(this.props.item)
+                  var a = this.props.item
+                  this.props.goods.addMygoods(a);
                   this.setState({
                     number: this.state.number+1
                   })
@@ -81,6 +86,8 @@ class StatsCard extends React.Component {
                 </Fab>
                 <Fab size="small" color="primary" aria-label="Add" style={{marginLeft:"3rem"}} className="ml-5" onClick={() => {
                   console.log("sasa")
+                  var a = this.props.item
+                  this.props.goods.removeMygoods(a);
                   this.setState({
                     number: this.state.number-1
                   })

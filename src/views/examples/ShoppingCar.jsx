@@ -16,9 +16,9 @@ import {observer} from "mobx-react";
 class ShoppingCar extends React.Component {
     butGoods() {
         console.log("sasas")
-        for(let item in goods.mygoods) {
-            console.log(goods.mygoods[item])
-        }
+        // for(let item in goods.mygoods) {
+            console.log(...goods.mygoods)
+        // }
     }
     render() {
         return (
@@ -26,7 +26,7 @@ class ShoppingCar extends React.Component {
                 <br/>
                 {
                     this.props.goods.mygoods.map(
-                        current => <StatsCard key={current.id} item={current}></StatsCard>
+                        current => <StatsCard key={current.id} item={current} goods={goods}></StatsCard>
                     )
                 }
                 {/* <StatsCard></StatsCard>
@@ -38,8 +38,11 @@ class ShoppingCar extends React.Component {
                 {/* <Button color="primary" size="" type="button" disabled>
 
                 </Button> */}
-                <Button color="info" size="" type="button" onClick={this.butGoods.bind(this)}>
-                    20  结算
+                <Button color="primary" size="" type="button" onClick={this.props.goods.resetMygoods}>
+                    清空
+                </Button>
+                <Button color="primary" size="" type="button" onClick={this.butGoods.bind(this)}>
+                    结算
                 </Button>
             {/* < div style={{    position: "fixed",
                             bottom: "3.5rem",
