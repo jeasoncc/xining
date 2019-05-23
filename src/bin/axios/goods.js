@@ -21,3 +21,27 @@ export function getGoodsType(params) {
     data: params
   })
 }
+
+
+/**
+ *  @description 商品购买明细
+ */
+export function findSellGoods(params) {
+  return request({
+    url: "/app/sell/findSellGoods",
+    method: "post",
+    data: params
+  })
+}
+
+
+/**
+ *  @description 车票购买记录
+ */
+export function findSellTicket(params) {
+  return request({
+    url: "app/sell/findSellTicket",
+    method: "post",
+    data: params
+  })
+}
