@@ -1,8 +1,0 @@
-/*
-* @description vscode支持装饰器配置
-*/
-{
-    "compilerOptions": {
-        "experimentalDecorators": true
-    }
-}
