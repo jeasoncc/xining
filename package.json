@@ -58,6 +58,7 @@
     "prop-types": "^15.7.2",
     "qrcode.react": "^0.9.3",
     "qs": "^6.7.0",
+    "ramda": "^0.26.1",
     "react": "16.8.4",
     "react-amap": "^1.2.8",
     "react-chartjs-2": "2.7.4",

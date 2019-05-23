@@ -39,7 +39,7 @@ class StatsCard extends React.Component {
               <Row>
                 <div className="col">
                   <CardTitle className="text-uppercase text-muted mb-0">
-                    康师傅方便面（{this.state.number}）
+                      {this.props.item.name}({this.props.item.num}）
                   </CardTitle>
                   <span className="h2 font-weight-bold mb-0">5¥</span>
                 </div>

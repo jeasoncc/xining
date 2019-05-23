@@ -9,8 +9,9 @@ import {Link} from "react-router-dom"
 import { getGoodsType,getGoodsByUser } from "bin/axios/goods";
 import {observer} from "mobx-react";
 // import Welcome from "./MobxTest"
+import goods from "store/goods.js"
 import { observable, computed, useStrict, action, observe } from 'mobx'
-const test = require("./test")
+// const test = require("./test")
 
 
 class VM {
@@ -54,7 +55,8 @@ class MyTest extends React.Component {
   }
 }
 var that
-export default class ShoppingProduct extends React.Component {
+var some = []
+ class ShoppingProduct extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
@@ -99,9 +101,28 @@ export default class ShoppingProduct extends React.Component {
               })
         })
     }
+     // 传参数到购物车
     addShoppingCar(prop) {
-        console.log("addShoppingCar")
-        console.log(prop)
+        // console.log("addShoppingCar")
+        // console.log(prop)
+        prop.num = 1
+        that.props.goods.addMygoods(prop);
+        // that.setState({
+        //     productItems:  R.append(prop, that.state.productItems)
+        //   }, ( ) => {
+        //     console.log(that.state.productItems)
+
+        //   })
+        //   that.props.goods.addMygoods(that.state.productItems);
+        // R.append[prop, some]
+        // console.log(some)
+        // var a = R.append('tests', ['write', 'more']);
+        // console.log(a)
+        // console.log( that.props.goods.mygoods)
+    }
+    componentDidUpdate() {
+        // console.log(that.state.productItems)
+        // console.log(that.props.goods.mygoods)
     }
     render() {
         const { classes } = this.props;
@@ -148,4 +169,10 @@ export default class ShoppingProduct extends React.Component {
             </>
         )
     }
+}
+
+export default function ShoppingProductFather() {
+    return (
+        <ShoppingProduct goods={goods}></ShoppingProduct>
+    )
 }
