@@ -10,7 +10,10 @@ import red from '@material-ui/core/colors/red';
 import {
   CardImg,
   Button,
-  Badge
+  Badge,
+  UncontrolledAlert,
+  UncontrolledPopover,
+  PopoverBody
 } from "reactstrap";
 const styles = theme => ({
   root: {
@@ -69,6 +72,7 @@ function PaperSheet(props) {
                     color="primary"
                     type="button"
                     size="sm"
+                    id="tooltip348236073"
                     onClick={
                       () => props.onClick(item)
                     }>
@@ -77,6 +81,16 @@ function PaperSheet(props) {
               </span>
               <span className="btn-inner--text">添加</span>
             </Button>
+            {/* <UncontrolledPopover
+              placement="top"
+              target="tooltip348236073"
+              className="popover-default"
+            >
+              <PopoverBody>
+                This is a very beautiful popover, show some love.
+              </PopoverBody>
+            </UncontrolledPopover> */}
+
             </Grid>
             <Typography component="p">
               {item.des}

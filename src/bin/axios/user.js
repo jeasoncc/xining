@@ -70,3 +70,13 @@ export function findSellTicket(params) {
     data: params
   })
 }
+/**
+ *  @description 车票购买记录
+ */
+export function sellGoods(params) {
+  return request({
+    url: "/app/sell/sellGoods",
+    method: "post",
+    data: params
+  })
+}
