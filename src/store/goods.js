@@ -1,27 +1,17 @@
 import {observable,action} from 'mobx';
+import {sellGoods} from "bin/axios/user.js"
 const R = require("ramda")
 var goods = observable({
-    mygoods: []
+    mygoods: [],
+    buyState: false
 });
 goods.resetMygoods = action(function rest(some) {
     goods.mygoods = [];
 });
 goods.addMygoods = action(function addMygoods(some) {
-    console.log(goods.mygoods.length )
-
     if(goods.mygoods.length === 0) {
         goods.mygoods = R.append(some, goods.mygoods)
     } else {
-        // goods.mygoods = R.append(some, goods.mygoods)
-        // console.log("当前商品不为空")
-        // for(let item in goods.mygoods) {
-        //     console.log(goods.mygoods[item].id)
-        //     console.log(some.id)
-        //     if (goods.mygoods[item].id === some.id) {
-        //         goods.mygoods.pop(some)
-        //         return
-        //     }
-        // }
         var aaa = false
         goods.mygoods.filter(current => {
             if(current.id === some.id) {
@@ -32,28 +22,13 @@ goods.addMygoods = action(function addMygoods(some) {
         if(aaa === false ) {
             goods.mygoods = R.append(some, goods.mygoods)
         }
-        console.log()
     }
-    // goods.mygoods = R.without([some], goods.mygoods)
 });
 goods.removeMygoods = action(function remove(some) {
-    // console.log(goods.mygoods.length )
 
     if(goods.mygoods.length === 0) {
         // goods.mygoods = R.append(some, goods.mygoods)
     } else {
-        // goods.mygoods = R.append(some, goods.mygoods)
-        // console.log("当前商品不为空")
-        // for(let item in goods.mygoods) {
-        //     console.log(goods.mygoods[item].id)
-        //     console.log(some.id)
-        //     if (goods.mygoods[item].id === some.id) {
-        //         goods.mygoods.pop(some)
-        //         return
-        //     }
-        // }
-        // let aaa = false
-        // let aaaIndex
         goods.mygoods.filter((current,index) => {
             if(current.id === some.id) {
                 current.num--
@@ -67,13 +42,36 @@ goods.removeMygoods = action(function remove(some) {
 
             }
         })
-        // console.log(aaaIndex)
-        // if(aaa === false ) {
-        //     console.log("jinlaile")
-        //     console.log(aaaIndex)
-        // }
-        // console.log()
     }
-    // goods.mygoods = R.without([some], goods.mygoods)
 });
+goods.buyMygoods = action(function () {
+    console.log("sasasa")
+    try {
+        // var mybuyPromise = new Promise(function)
+        var count = 0
+        var item = []
+        goods.mygoods.map((current) =>  {
+
+            // console.log(current)
+            // console.log(current.price)
+            count = count + current.price *  current.num
+            item.push({
+                goodId: current.id,
+                num: current.num,
+                price:current.price
+            })
+            // console.log(count)
+        })
+        sellGoods({count,item}).then( res => {
+            console.log(res)
+            goods.buyState = res.retcode === 0 ? true : false
+        })
+    } catch (error) {
+
+    }
+    // console.log(goods.count)
+})
+goods.initMygoodsState = action(function () {
+    goods.buyState = false
+})
 export default goods

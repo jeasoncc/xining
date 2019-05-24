@@ -71,7 +71,7 @@ export function findSellTicket(params) {
   })
 }
 /**
- *  @description 车票购买记录
+ *  @description 商品购买
  */
 export function sellGoods(params) {
   return request({

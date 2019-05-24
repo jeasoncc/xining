@@ -5,24 +5,75 @@ import React from "react"
 // import PinnedSubheaderList from "components/Sidebar/ShoppingSidebar"
 import StatsCard from "components/StatsCard"
 import {  Container } from "reactstrap";
-import { Button } from "reactstrap";
 // import { Alert } from "reactstrap";
 import goods from "store/goods.js"
+import {
+    Button,
+    Card,
+    CardHeader,
+    CardBody,
+    FormGroup,
+    Form,
+    Input,
+    InputGroupAddon,
+    InputGroupText,
+    InputGroup,
+    Modal,
+    Row,
+    Col
+  } from "reactstrap";
 import {observer} from "mobx-react";
 // import Grid from '@material-ui/core/Grid';
 
 
 @observer
 class ShoppingCar extends React.Component {
+    state = {
+        exampleModal: false
+      };
+      toggleModal = state => {
+        this.setState({
+          [state]: !this.state[state]
+        });
+      };
     butGoods() {
-        console.log("sasas")
-        // for(let item in goods.mygoods) {
-            console.log(...goods.mygoods)
-        // }
+        console.log(this.props.goods.buyMygoods())
     }
     render() {
         return (
             <Container style={{paddingBottom:"2rem"}}>
+                <Modal
+                    className="modal-dialog-centered modal-success"
+                    contentClassName="bg-gradient-success"
+                    isOpen={this.props.goods.buyState}
+                    toggle={() => this.toggleModal("exampleModal")}
+                    >
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">
+                        {/* Modal title */}
+                        </h5>
+                        <button
+                        aria-label="Close"
+                        className="close"
+                        data-dismiss="modal"
+                        type="button"
+                        onClick={() => this.toggleModal("exampleModal")}
+                        >
+                        <span aria-hidden={true}>×</span>
+                        </button>
+                    </div>
+                    <div className="modal-body">购买成功</div>
+                    <div className="modal-footer">
+                        <Button
+                        color="secondary"
+                        data-dismiss="modal"
+                        type="button"
+                        onClick={() => this.props.goods.initMygoodsState()}
+                        >
+                        关闭
+                        </Button>
+                    </div>
+                    </Modal>
                 <br/>
                 {
                     this.props.goods.mygoods.map(
