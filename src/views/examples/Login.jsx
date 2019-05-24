@@ -62,6 +62,7 @@ class Login extends React.Component {
      *  @description 发送登录请求
      */
     login(prams).then((res) => {
+        localStorage.setItem("userType",res.data.sort)
         if(res.retcode === 0) {
           this.context.router.history.push("/Shopping/sales//")
         } else {

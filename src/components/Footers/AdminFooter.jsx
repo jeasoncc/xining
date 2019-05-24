@@ -12,11 +12,19 @@ const styles = {
   root: {
     width: "100%",
   },
+  show :{
+    display: 'block',
+  },
+  hidden: {
+    display: 'none',
+}
+
 };
 
 class SimpleBottomNavigation extends React.Component {
   state = {
     value: 0,
+    isShow:false
   };
 
   handleChange = (event, value) => {
@@ -37,8 +45,8 @@ class SimpleBottomNavigation extends React.Component {
                   bottom: 0}}
       >
         <BottomNavigationAction label="主页"  icon={<Home />} to="/Shopping/sales/"  component={Link}/>
-        <BottomNavigationAction label="观光游览" icon={<Fastfood />} to="/Shopping/tourBus/"  component={Link}/>
-        <BottomNavigationAction label="商城" icon={<Business />} to="/Shopping/ShoppingProduct/"  component={Link}/>
+        <BottomNavigationAction label="观光游览" className={localStorage.getItem('userType')==3 ? classes.show: classes.hidden}  icon={<Fastfood />} to="/Shopping/tourBus/"  component={Link}/>
+        <BottomNavigationAction label="商城" className={localStorage.getItem('userType')==2 ? classes.show: classes.hidden} icon={<Business />} to="/Shopping/ShoppingProduct/"  component={Link}/>
         <BottomNavigationAction label="智慧景区" icon={<PinDrop />} to="/Shopping/maps/"  component={Link}/>
         {/* <BottomNavigationAction label="我的" icon={<AccountCircle />} to="/admin/user-profile" component={Link}/> */}
       </BottomNavigation>
