@@ -94,7 +94,7 @@ class Navbars extends React.Component {
                     </span>
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink
                     className="nav-link-icon"
                     to="/Shopping/changePassword"
@@ -105,9 +105,9 @@ class Navbars extends React.Component {
                       修改密码
                     </span>
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
                 <UncontrolledDropdown nav>
-                  <NavLink
+                  {/* <NavLink
                     className="nav-link-icon"
                     data-toggle="dropdown"
                     id="navbar-default_dropdown_1"
@@ -118,7 +118,7 @@ class Navbars extends React.Component {
                     <span className="nav-link-inner--text d-lg-none">
                       修改基本信息
                     </span>
-                  </NavLink>
+                  </NavLink> */}
                   <DropdownMenu
                     aria-labelledby="navbar-default_dropdown_1"
                     right
