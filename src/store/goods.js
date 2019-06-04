@@ -3,7 +3,8 @@ import {sellGoods} from "bin/axios/user.js"
 const R = require("ramda")
 var goods = observable({
     mygoods: [],
-    buyState: false
+    buyState: false,
+    buyAnimalState : "212"
 });
 goods.resetMygoods = action(function rest(some) {
     goods.mygoods = [];
@@ -73,5 +74,15 @@ goods.buyMygoods = action(function () {
 })
 goods.initMygoodsState = action(function () {
     goods.buyState = false
+})
+goods.butAnimal = action(() => {
+    console.log("sasasasa")
+    goods.buyAnimalState = "购买中"
+    // setTimeout(() => {
+    //     goods.buyAnimalState = "购买成功"
+    // }, 1000)
+    // setTimeout(() => {
+    //     goods.buyAnimalState = ""
+    // }, 2000)
 })
 export default goods

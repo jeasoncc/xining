@@ -53,13 +53,14 @@ class Modals extends React.Component {
               color="secondary"
               data-dismiss="modal"
               type="button"
+              color="primary"
               onClick={() => this.toggleModal("exampleModal")}
             >
-              Close
+              关闭
             </Button>
-            <Button color="primary" type="button">
+            {/* <Button color="primary" type="button">
               Save changes
-            </Button>
+            </Button> */}
           </div>
         </Modal>
       </>

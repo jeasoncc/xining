@@ -45,3 +45,12 @@
     @include badge-variant($value);
   }
 }
+.someTestImg{
+  width: 100%;
+  height: 100%;
+}
+.code-box-shape{
+  height: 100px;
+  width: 100px;
+  background: red
+}

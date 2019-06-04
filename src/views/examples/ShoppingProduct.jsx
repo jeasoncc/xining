@@ -63,7 +63,8 @@ var some = []
             productItems: [],
             goodsList:[],
             goodsType:[],
-            goodsId: 5
+            goodsId: 5,
+            buyState: "2121"
         }
         this.getGoodsByUser = this.getGoodsByUser.bind(this);
         this.getGoodsType = this.getGoodsType.bind(this);
@@ -106,6 +107,10 @@ var some = []
         // console.log("addShoppingCar")
         // console.log(prop)
         prop.num = 1
+        // that.props.goods.butAnimal()
+        // that.setState({
+        //     buyState: "nima"
+        // })
         that.props.goods.addMygoods(prop);
         // that.setState({
         //     productItems:  R.append(prop, that.state.productItems)
@@ -159,6 +164,7 @@ var some = []
 
                         <Producter goodList={this.state.goodsList}
                                    id={this.state.goodsId}
+                                   state={this.state.buyState}
                                    onClick={this.addShoppingCar}></Producter>
                         {/* <Producter></Producter>
                         <Producter></Producter>

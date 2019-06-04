@@ -165,6 +165,16 @@ class Maps extends React.Component {
       map: mapObj,
       position: [101.766309,36.710112]
     });
+    obj3.on('click', (res) => {
+      that.setState({
+        title: "玉珠明盘简介",
+        pragph: `
+        (1).石制盘子。 南朝 梁元帝 《金楼子·杂记上》：“﹝ 子路 ﹞复怀石盘，曰：‘夫子知虎在水，而使我取水，是欲杀我也。’乃欲杀夫子。问：‘上士杀人如之何？’曰：‘用笔端。’‘中士杀人如之何？’曰：‘用语言。’‘下士杀人如之何？’曰：‘用石盘。’ 子路 乃弃盘而去。”
+        (2).平整如盘的大石。 唐 郑损 《泛香亭》诗：“山溜穿云来几里，石盘和藓凿何年？” 宋 叶适 《虎丘》诗：“松梢莫遣风雨横，石盘自添苔藓涩。”`
+      })
+      that.handleClick()
+      // console.log(res)
+    })
     var obj4 =   new SimpleMarker({
 
       //前景文字
@@ -185,6 +195,14 @@ class Maps extends React.Component {
       map: mapObj,
       position: [101.7641043663,36.704648787,]
     });
+    obj4.on('click', (res) => {
+      that.setState({
+        title: "服务区简介",
+        pragph: `设施功能最完善和最优质，设有加油站、停车场、便利店、免费休息室、餐厅和汽修厂等服务设施，通常配备了设施条件较好的住宿、冼浴等设施。另外，根据需要和服务区所处的地理位置，可以在服务区规划建设商务会议室、物流仓储、冷冻室和旅游休闲观光区等服务设施。`
+      })
+      that.handleClick()
+      // console.log(res)
+    })
   }
 
 

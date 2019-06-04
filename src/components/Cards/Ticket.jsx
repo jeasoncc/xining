@@ -139,7 +139,7 @@ class Cards extends React.Component {
 
             <Button
               color="primary"
-              href="#pablo"
+
               onClick={this.props.onClick}
             >
               购买车票
