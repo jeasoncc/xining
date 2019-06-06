@@ -37,6 +37,9 @@ class PinnedSubheaderLists extends React.Component {
     super(props);
     this.state = {date: 1 }
   }
+  componentDidMount() {
+
+  }
   render() {
     return (
       <>
@@ -47,7 +50,10 @@ class PinnedSubheaderLists extends React.Component {
               <ListItem key={item.id}>
                 <Button color="info" size="sm" type="button" block
                  onClick = {() =>
-                  this.props.onClick(item.id)
+                  {
+                    console.log(item.id)
+                    return this.props.onClick(item.id)
+                  }
                  } >
                   <span>{item.name}</span>
                   {/* <Badge color="Warning">4</Badge> */}

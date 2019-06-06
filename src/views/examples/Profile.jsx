@@ -1,5 +1,5 @@
 import React from "react";
-
+import { getKey, setKey } from "bin/cookie/base";
 // reactstrap components
 import {
   Button,
@@ -20,12 +20,15 @@ import {
   TabPane,
 } from "reactstrap";
 // core components
+import PropTypes from 'prop-types';
 import UserHeader from "components/Headers/UserHeader.jsx";
 import { findSellGoods,findSellTicket } from "bin/axios/goods";
 import classnames from "classnames";
-
+var that
 class Profile extends React.Component {
-
+  static contextTypes = {
+    router: PropTypes.object
+  }
   constructor (props) {
     super(props)
     this.state = {
@@ -41,7 +44,9 @@ toggleNavs = (e, state, index) => {
     [state]: index
   });
 };
-
+  componentWillMount() {
+    that = this
+  }
   findSellGoods(){
     var param = {startDate:'',endDate:''}
     findSellGoods(param).then(res => {
@@ -65,6 +70,7 @@ toggleNavs = (e, state, index) => {
   render() {
     return (
       <>
+      <Container>
       <Nav
           className="nav-fill flex-row flex-sm-row"
           id="tabs-text"
@@ -83,7 +89,7 @@ toggleNavs = (e, state, index) => {
             >
             购物明细
             </NavLink>
-          </NavItem> 
+          </NavItem>
           <NavItem>
             <NavLink
               aria-selected={this.state.navPills === 2}
@@ -107,6 +113,7 @@ toggleNavs = (e, state, index) => {
             <tr>
               <th scope="col">购物金额</th>
               <th scope="col">购物时间</th>
+              <th scope="col">现金支付</th>
             </tr>
           </thead>
           <tbody>
@@ -114,6 +121,7 @@ toggleNavs = (e, state, index) => {
             <tr>
               <td>{item.amount}</td>
               <td>{item.time}</td>
+              <td>{item.isCash}</td>
             </tr>
             ))}
           </tbody>
@@ -125,6 +133,7 @@ toggleNavs = (e, state, index) => {
             <tr>
               <th scope="col">买票金额</th>
               <th scope="col">买票时间</th>
+              <th scope="col">现金支付</th>
             </tr>
           </thead>
           <tbody>
@@ -132,6 +141,7 @@ toggleNavs = (e, state, index) => {
             <tr>
               <td>{item.amount}</td>
               <td>{item.time}</td>
+              <td>{item.isCash}</td>
             </tr>
             ))}
           </tbody>
@@ -139,7 +149,30 @@ toggleNavs = (e, state, index) => {
           </TabPane>
           </TabContent>
           </CardBody>
+          <br />
+          <Button className="btn-icon btn-2"
+                  color="primary"
+                  type="button"
+                  onClick={ () => {
+                    console.log('2121')
+                    // setKey()
+                    var aaa = function * () {
+                      yield setKey('');
+                      yield console.log(getKey())
+                      yield that.context.router.history.push("/auth/login")
+                    }
+                    var hw = aaa()
+                    hw.next()
+                     hw.next()
+                     hw.next()
+                  }}>
+          <span className="btn-inner--icon">
+            <i className="ni ni-atom" />
+            退出登录
+          </span>
+        </Button>
         </Card>
+        </Container>
       </>
     );
   }

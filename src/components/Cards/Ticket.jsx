@@ -38,6 +38,17 @@ class Cards extends React.Component {
         super(props);
         this.state = {date: 10};
         this.buyTicket = this.buyTicket.bind(this)
+        this.handleInputChange = this.handleInputChange.bind(this)
+    }
+    handleInputChange(event) {
+      const target = event.target;
+      const value = target.type === 'checkbox' ? target.checked : target.value;
+      // console.log(value)
+      if(value) {
+          console.log(value)
+      } else {
+          console.log(value)
+      }
     }
     buyTicket() {
       console.log("sasasa")
@@ -128,6 +139,17 @@ class Cards extends React.Component {
             </Col>
           </Row>
           <br/>
+          <div className="custom-control custom-checkbox mb-3">
+                <input
+                    className="custom-control-input"
+                    id="customCheck1"
+                    type="checkbox"
+                    onChange={this.props.changeCash}
+                />
+                <label className="custom-control-label" htmlFor="customCheck1">
+                    是否为现金
+                </label>
+                </div>
             <FormGroup>
                 <Input
                   id="exampleFormControCardTextnput1"

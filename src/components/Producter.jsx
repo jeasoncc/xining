@@ -39,7 +39,7 @@ class PaperSheet extends React.Component {
         console.log(value);
         // var aaa =
         let items = this.state.buyState
-        items[index] = "中"
+        items[index] = "..."
         that.setState({
           buyState: items
         })
@@ -59,7 +59,7 @@ class PaperSheet extends React.Component {
       //   buyState: ""
       // })
       let items = this.state.buyState
-      items[index] = "完成"
+      items[index] = ""
       that.setState({
         buyState: items
       })
@@ -83,12 +83,14 @@ class PaperSheet extends React.Component {
             <Paper className={this.state.classes.root} elevation={1}
                     style={{marginBottom:"20px",
                     padding: ".5rem",
+                    margin:'.2rem',
+                    // flexGrow: '1',
                             display: this.props.id === item.cid ? "block":"none",
-                          width: "48%"}}
+                          width: "30%"}}
                     key={item.id}>
                     {/* {this.props.id} */}
 
-              <div style={{height: "100px"}}>
+              <div style={{height: "50px"}}>
 
                 <CardImg src={"http://139.9.244.125:8550/app-service" + item.picture  } className="someTestImg" ></CardImg>
                 {/* <CardImg alt="..." src={"https://picsum.photos/id/1025/4951/3301"} className="someTestImg" ></CardImg> */}
@@ -100,7 +102,7 @@ class PaperSheet extends React.Component {
                 container
                 direction="column"
                 justify="space-between"
-                alignItems="start"
+                alignItems="flex-start"
               >
               <Badge color="info" pill style={{marginBottom:'10px'}}>
                 ¥{item.price}
@@ -129,15 +131,15 @@ class PaperSheet extends React.Component {
                 style={{ transform: 'translateX(-80px)' }}
                 className="ni ni-cart"
               /> */}
-                  <i className="ni ni-cart" />
+                  <i className="ni ni-fat-add" />
                 </span>
-                <span className="btn-inner--text">添加{this.state.buyState[index]}</span>
+                <span >加入{this.state.buyState[index]}</span>
               </Button>
 
               </Grid>
-              <Typography component="p">
+              {/* <Typography component="p">
                 {item.des}
-              </Typography>
+              </Typography> */}
             </Paper>
           )
           })

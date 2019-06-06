@@ -17,7 +17,7 @@ import {
   } from "reactstrap";
 import Ticket from "components/Cards/Ticket.jsx";
 // import QRCode from "components/QRCode.jsx";
-import {findDriverTicket,sellTicket} from "bin/axios/user.js"
+import {findDriverTicket,sellTicket,sellTicketByCash} from "bin/axios/user.js"
 import {Container} from "reactstrap"
 
 var that
@@ -29,7 +29,8 @@ export default class tourBus extends React.Component {
         // 要购买票数
         buyNum: 0,
         price: 0,
-        totip: "您将购买本次车票，请确认。"
+        totip: "您将购买本次车票，请确认。",
+        isCash: 0
       };
       toggleModal = state => {
         // console.log("sasasa")
@@ -38,24 +39,67 @@ export default class tourBus extends React.Component {
         });
 
       };
-      buyTicket = () => {
-        let prams = {
-            ticketPrice: that.state.price,
-            num: that.state.buyNum,
-        }
-        console.log("jeason")
-        sellTicket(prams).then(res => {
-            console.log(res)
-            if(res.retcode === 0) {
-                that.state.totip = "购买成功"
-            } else {
-                that.state.totip = "购买失败"
-            }
+      handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        // console.log(value)
+        if(value) {
+            console.log(value)
+            that.setState({
+                isCash:1
+            })
 
-            setTimeout(() => {
-                that.queryTicket()
-            }, 500);
-        })
+        } else {
+            console.log(value)
+            that.setState({
+                isCash:0
+            })
+            console.log(that.state.isCash)
+        }
+        // this.setState({
+        //   [name]: value
+        // });
+      }
+      buyTicket = () => {
+        if(that.state.isCash) {
+            let prams = {
+                ticketPrice: that.state.price,
+                num: that.state.buyNum,
+                isCash :that.state.isCash,
+            }
+            console.log("jeason")
+            sellTicketByCash(prams).then(res => {
+                console.log(res)
+                if(res.retcode === 0) {
+                    that.state.totip = "购买成功"
+                } else {
+                    that.state.totip = "购买失败"
+                }
+
+                setTimeout(() => {
+                    that.queryTicket()
+                }, 500);
+            })
+        } else {
+            let prams = {
+                ticketPrice: that.state.price,
+                num: that.state.buyNum,
+                // isCash :that.state.isCash,
+            }
+            console.log("jeason")
+            sellTicket(prams).then(res => {
+                console.log(res)
+                if(res.retcode === 0) {
+                    that.state.totip = "购买成功"
+                } else {
+                    that.state.totip = "购买失败"
+                }
+
+                setTimeout(() => {
+                    that.queryTicket()
+                }, 500);
+            })
+        }
         setTimeout(() => {
             that.toggleModal("exampleModal")
         }, 1000);
@@ -146,6 +190,10 @@ export default class tourBus extends React.Component {
                             this.setState({
                                 buyNum: e.target.value
                             })
+                        }}
+                        changeCash={(e) => {
+                            // console.log(e.target.checked)
+                            this.handleInputChange(e)
                         }}
                         price={this.state.price}/>
             </Container>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 // reactstrap components
 import {
-  UncontrolledCollapse,
+  Collapse,
   DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
@@ -17,8 +17,15 @@ import {
 } from "reactstrap";
 import { observable } from "mobx";
 class Navbars extends React.Component {
-  @observable title = "";
-  @observable finished = false;
+  constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = { collapse: false };
+  }
+  toggle() {
+    console.log('2121')
+    this.setState(state => ({ collapse: !state.collapse }));
+  }
   render() {
     return (
       <>
@@ -38,18 +45,19 @@ class Navbars extends React.Component {
                北川河湿地公园
             </NavbarBrand>
             <button
-              aria-controls="navbar-default"
-              aria-expanded={false}
-              aria-label="Toggle navigation"
-              className="navbar-toggler"
-              data-target="#navbar-default"
-              data-toggle="collapse"
-              id="navbar-default"
+              // aria-controls="navbar-default"
+              // aria-expanded={false}
+              // aria-label="Toggle navigation"
+              // className="navbar-toggler"
+              // data-target="#navbar-default"
+              // data-toggle="collapse"
+              // id="navbar-default"
               type="button"
+              onClick={this.toggle}
             >
               <span className="navbar-toggler-icon" />
             </button>
-            <UncontrolledCollapse navbar toggler="#navbar-default">
+            <Collapse navbar toggler="#navbar-default"  isOpen={this.state.collapse}>
               <div className="navbar-collapse-header">
                 <Row>
                   <Col className="collapse-brand" xs="6">
@@ -70,6 +78,7 @@ class Navbars extends React.Component {
                       data-toggle="collapse"
                       id="navbar-default"
                       type="button"
+                      onClick={this.toggle}
                     >
                       <span />
                       <span />
@@ -80,10 +89,19 @@ class Navbars extends React.Component {
               <Nav className="ml-lg-auto" navbar>
                 <NavItem>
                   <NavLink
-
+                    aria-controls="navbar-default"
+                    // aria-expanded={false}
+                    aria-label="Toggle navigation"
+                    className="navbar-toggler"
+                    data-target="#navbar-default"
+                    // data-toggle="collapse"
+                    id="navbar-default"
                     className="nav-link-icon"
                     onClick={() => {
-                      console.log("saas")
+                      // this.toggle
+                      this.toggle()
+                      // console.log("saas")
+                      // console.log(this.myRef)
                     }}
                     to="/Shopping/user-profile"
                     tag={Link}
@@ -145,7 +163,7 @@ class Navbars extends React.Component {
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>
-            </UncontrolledCollapse>
+            </Collapse>
           </Container>
         </Navbar>
       </>

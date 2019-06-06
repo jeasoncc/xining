@@ -1,13 +1,20 @@
 import {observable,action} from 'mobx';
-import {sellGoods} from "bin/axios/user.js"
+import {sellGoods,sellGoodsByCash} from "bin/axios/user.js"
 const R = require("ramda")
 var goods = observable({
     mygoods: [],
     buyState: false,
-    buyAnimalState : "212"
+    buyAnimalState : "212",
+    isCash:0
 });
 goods.resetMygoods = action(function rest(some) {
     goods.mygoods = [];
+});
+goods.setCash = action(function rest(some) {
+    goods.isCash = 1;
+});
+goods.initCash = action(function rest(some) {
+    goods.isCash = 0;
 });
 goods.addMygoods = action(function addMygoods(some) {
     if(goods.mygoods.length === 0) {
@@ -46,11 +53,12 @@ goods.removeMygoods = action(function remove(some) {
     }
 });
 goods.buyMygoods = action(function () {
-    console.log("sasasa")
+    // console.log("sasasa")
     try {
         // var mybuyPromise = new Promise(function)
         var count = 0
         var item = []
+        var isCash = goods.isCash
         goods.mygoods.map((current) =>  {
 
             // console.log(current)
@@ -63,10 +71,19 @@ goods.buyMygoods = action(function () {
             })
             // console.log(count)
         })
-        sellGoods({count,item}).then( res => {
-            console.log(res)
-            goods.buyState = res.retcode === 0 ? true : false
-        })
+        console.log(isCash)
+        if(isCash){
+            sellGoodsByCash({count,item,isCash}).then( res => {
+                console.log(res)
+                goods.buyState = res.retcode === 0 ? true : false
+            })
+        } else {
+            sellGoods({count,item}).then( res => {
+                console.log(res)
+                goods.buyState = res.retcode === 0 ? true : false
+            })
+        }
+
     } catch (error) {
 
     }

@@ -50,7 +50,6 @@ class Shopping extends React.Component {
         return (
             <div  style={{paddingBottom:"4rem","paddingTop": "5rem"}}>
                <AdminNavbar name="sasa"/>
-
               <Switch >{this.getRoutes(routes)}</Switch>
               <AdminFooter></AdminFooter>
               {/* <AdminFooter></AdminFooter> */}

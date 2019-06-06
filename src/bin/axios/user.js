@@ -53,6 +53,13 @@ export function findDriverTicket(params) {
 /**
  *  @description 车票购买
  */
+export function sellTicketByCash(params) {
+  return request({
+    url: "/app/sell/sellTicketByCash",
+    method: "post",
+    data: params
+  })
+}
 export function sellTicket(params) {
   return request({
     url: "/app/sell/sellTicket",
@@ -76,6 +83,13 @@ export function findSellTicket(params) {
 export function sellGoods(params) {
   return request({
     url: "/app/sell/sellGoods",
+    method: "post",
+    data: params
+  })
+}
+export function sellGoodsByCash(params) {
+  return request({
+    url: "/app/sell/sellGoodsByCash",
     method: "post",
     data: params
   })

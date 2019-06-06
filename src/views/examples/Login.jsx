@@ -5,7 +5,8 @@ import { login } from "bin/axios/user";
 import { Alert } from "reactstrap";
 import PropTypes from 'prop-types';
 import {observable} from 'mobx';
-
+import Cookies from 'js-cookie'
+import { getKey, setKey } from "bin/cookie/base";
 import {
   Button,
   Card,
@@ -40,6 +41,24 @@ class Login extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.login = this.login.bind(this);
+  }
+  componentWillMount() {
+    console.log('llsls')
+    // console.log(getKey());
+    // debugger
+    const isJudge = getKey()
+    console.log(isJudge)
+    console.log(Boolean(isJudge))
+    console.log(typeof(isJudge))
+    // console.log(type isJudge)
+    if(Boolean(isJudge)) {
+      // console.log(getKey());
+      console.log('进来了')
+      this.context.router.history.push("/Shopping/sales/")
+
+    } else {
+      console.log('sasa')
+    }
   }
   componentDidMount() {
 
