@@ -9,6 +9,9 @@ import Sales from "views/examples/Sales";
 import ShoppingProduct from "views/examples/ShoppingProduct";
 import ShoppingCar from "views/examples/ShoppingCar";
 import tourBus from "views/tourBus/tourBus.jsx";
+import RentalCar from "views/tourBus/RentalCar.jsx";
+import TimerCar from "views/tourBus/TimerCar.jsx";
+import ControllerCar from "views/tourBus/ControllerCar.jsx";
 import ChangeInfo from "views/user/ChangeInfo";
 import ChangePassword from "views/user/ChangePassword";
 
@@ -32,6 +35,27 @@ var routes = [
     name: "tourBus",
     icon: "ni ni-tv-2 text-primary",
     component: tourBus,
+    layout: "/Shopping"
+  },
+  {
+    path: "/rentalCar",
+    name: "RentalCar",
+    icon: "ni ni-tv-2 text-primary",
+    component: RentalCar,
+    layout: "/Shopping"
+  },
+  {
+    path: "/timerCar",
+    name: "TimerCar",
+    icon: "ni ni-tv-2 text-primary",
+    component: TimerCar,
+    layout: "/Shopping"
+  },
+  {
+    path: "/controllerCar",
+    name: "ControllerCar",
+    icon: "ni ni-tv-2 text-primary",
+    component: ControllerCar,
     layout: "/Shopping"
   },
   {

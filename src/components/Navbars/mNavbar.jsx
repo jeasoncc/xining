@@ -111,6 +111,29 @@ class Navbars extends React.Component {
                       个人中心
                     </span>
                   </NavLink>
+                  <NavLink
+                    aria-controls="navbar-default"
+                    // aria-expanded={false}
+                    aria-label="Toggle navigation"
+                    className="navbar-toggler"
+                    data-target="#navbar-default"
+                    // data-toggle="collapse"
+                    id="navbar-default"
+                    className="nav-link-icon"
+                    onClick={() => {
+                      // this.toggle
+                      this.toggle()
+                      // console.log("saas")
+                      // console.log(this.myRef)
+                    }}
+                    to="/Shopping/controllerCar/"
+                    tag={Link}
+                  >
+                    <i className="ni ni-ambulance" />
+                    <span className="nav-link-inner--text d-lg-none">
+                      车辆管理
+                    </span>
+                  </NavLink>
                 </NavItem>
                 {/* <NavItem>
                   <NavLink

@@ -1,7 +1,10 @@
 //
 // Base styles
 //
-
+.code-box-shape{
+  backface-visibility: #2dce89;
+  border-radius: 40%;
+}
 .alert {
   position: relative;
   padding: $alert-padding-y $alert-padding-x;
