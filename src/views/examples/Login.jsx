@@ -197,6 +197,19 @@ class Login extends React.Component {
                     司机
                   </label>
                 </div>
+                <div className="custom-control custom-radio mb-3 ml-3">
+                  <input
+                    className="custom-control-input"
+                    id="customRadio8"
+                    name="sort"
+                    type="radio"
+                    value={4}
+                    onChange={this.handleChange}
+                  />
+                  <label className="custom-control-label" htmlFor="customRadio8">
+                  租赁车管理员
+                  </label>
+                </div>
                 </Row>
 
                 <Alert color="danger" isOpen={this.state.showError}>

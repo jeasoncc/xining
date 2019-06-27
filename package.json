@@ -57,6 +57,7 @@
     "moment": "2.24.0",
     "node-sass": "4.11.0",
     "nouislider": "13.1.1",
+    "pile-ui": "^2.0.6-alpha.0",
     "prop-types": "^15.7.2",
     "qrcode.react": "^0.9.3",
     "qs": "^6.7.0",
@@ -74,7 +75,8 @@
     "react-router-dom": "4.3.1",
     "react-scripts": "2.1.8",
     "react-stopwatch": "^2.0.3",
-    "reactstrap": "7.1.0"
+    "reactstrap": "7.1.0",
+    "statman-stopwatch": "^2.8.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.4.0",

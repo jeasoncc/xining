@@ -10,7 +10,7 @@ import { getGoodsType,getGoodsByUser } from "bin/axios/goods";
 import {observer} from "mobx-react";
 // import Welcome from "./MobxTest"
 import goods from "store/goods.js"
-import { observable, computed, useStrict, action, observe } from 'mobx'
+import { observable, computed,  action,  } from 'mobx'
 // const test = require("./test")
 
 
@@ -75,16 +75,12 @@ var some = []
         this.getGoodsType()
     }
     selectGatery(prop) {
-        // console.log(prop)
         that.setState({
             goodsId: prop
         })
     }
     componentDidMount() {
         that = this
-        // findGoodsCategory().then(res => {
-        //     console.log(res)
-        // })
     }
     getGoodsByUser(){
         getGoodsByUser().then(res => {
@@ -104,30 +100,10 @@ var some = []
     }
      // 传参数到购物车
     addShoppingCar(prop) {
-        // console.log("addShoppingCar")
-        // console.log(prop)
         prop.num = 1
-        // that.props.goods.butAnimal()
-        // that.setState({
-        //     buyState: "nima"
-        // })
         that.props.goods.addMygoods(prop);
-        // that.setState({
-        //     productItems:  R.append(prop, that.state.productItems)
-        //   }, ( ) => {
-        //     console.log(that.state.productItems)
-
-        //   })
-        //   that.props.goods.addMygoods(that.state.productItems);
-        // R.append[prop, some]
-        // console.log(some)
-        // var a = R.append('tests', ['write', 'more']);
-        // console.log(a)
-        // console.log( that.props.goods.mygoods)
     }
     componentDidUpdate() {
-        // console.log(that.state.productItems)
-        // console.log(that.props.goods.mygoods)
     }
     render() {
         const { classes } = this.props;
@@ -147,8 +123,6 @@ var some = []
                 zIndex: "100"}}>
                     <ShoppingCart />
             </Fab>
-            {/* {this.sometest} */}
-            {/* <MyTest  vm= {new VM}></MyTest> */}
             <Grid container >
 
                 <Grid item xs={3}>
@@ -166,9 +140,6 @@ var some = []
                                    id={this.state.goodsId}
                                    state={this.state.buyState}
                                    onClick={this.addShoppingCar}></Producter>
-                        {/* <Producter></Producter>
-                        <Producter></Producter>
-                        <Producter></Producter> */}
                     </Grid>
                 </Grid>
             </Grid>

@@ -4,34 +4,36 @@ import {
   Button,
   Modal,
 } from "reactstrap";
-// import QRCode from "components/QRCode";
-import {observer} from 'mobx-react';
-// import appState from "store/store"
-@observer
+
 class Modals extends React.Component {
-   constructor(props) {
-     super(props);
-  }
   state = {
     exampleModal: false
   };
-  toggleModal = () => {
-    // showDia.set("show", false)
-    // console.log(appState)
-    // console.log(appState.get())
-    this.props.appState.resetTimer();
+  toggleModal = state => {
+    this.setState({
+      [state]: !this.state[state]
+    });
   };
   render() {
     return (
       <>
+        {/* Button trigger modal */}
+        <Button
+          color="primary"
+          type="button"
+          onClick={() => this.toggleModal("exampleModal")}
+        >
+          {this.props.buttonName}
+        </Button>
+        {/* Modal */}
         <Modal
           className="modal-dialog-centered"
-          isOpen={this.props.exampleModal}
-          // toggle={() => this.toggleModal("exampleModal")}
+          isOpen={this.state.exampleModal}
+          toggle={() => this.toggleModal("exampleModal")}
         >
           <div className="modal-header">
             <h5 className="modal-title" id="exampleModalLabel">
-              {this.props.frameworkName}
+            {this.props.title}
             </h5>
             <button
               aria-label="Close"
@@ -43,24 +45,22 @@ class Modals extends React.Component {
               <span aria-hidden={true}>×</span>
             </button>
           </div>
-          <div className="modal-body" style={{textAlign: "center"}}>
-            {/* <QRCode></QRCode> */}
-
-            {this.props.id}
-          </div>
+          <div className="modal-body">{this.props.tipP}</div>
           <div className="modal-footer">
             <Button
               color="secondary"
               data-dismiss="modal"
               type="button"
-              color="primary"
               onClick={() => this.toggleModal("exampleModal")}
             >
-              关闭
+              {this.props.cancelButtonName}
             </Button>
-            {/* <Button color="primary" type="button">
-              Save changes
-            </Button> */}
+            <Button color="primary" type="button" onClick={async() => {
+                await this.props.onClick()
+                await this.toggleModal("exampleModal")
+            }}>
+              {this.props.sureButtonName}
+            </Button>
           </div>
         </Modal>
       </>

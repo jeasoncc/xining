@@ -27,7 +27,38 @@ class PaperSheet extends React.Component {
     this.state = {
       classes: this.props,
       buyState: [],
+      moment: null,
+      paused: true,
+      reverse: false,
+      animation:{
+        x: 120,
+        y:480,
+        opacity:0,
+        scale: 0.5,
+        rotate: 360,
+        resetStyle:true,
+        // yoyo: true, // demo 演示需要
+        // repeat: -1, // demo 演示需要
+        duration: 1000,
+        onComplete:()=> {
+        },
+        onStart: ({index,target}) => {
+          console.log('sasaa')
+
+        }
+      }
     };
+  }
+  onRestart = () => {
+    this.setState({
+      paused: false,
+      reverse: false,
+      moment: 0,
+    }, () => {
+      this.setState({
+        moment: null,
+      });
+    });
   }
   componentWillMount() {
     that = this
@@ -36,10 +67,10 @@ class PaperSheet extends React.Component {
   jiali(item,index) {
     new Between(1, 10).time(1000)
     .on('update', (value) => { // This callback is executed in every frame
-        console.log(value);
+        // console.log(value);
         // var aaa =
         let items = this.state.buyState
-        items[index] = "..."
+        items[index] = ""
         that.setState({
           buyState: items
         })
@@ -74,9 +105,12 @@ class PaperSheet extends React.Component {
   }
   render() {
     return (
-      <div style={{    display: 'flex',
-        flexFlow: 'wrap',
-        justifyContent: 'space-between'}}>
+      <div style={{    display: 'grid',
+        // flexFlow: 'grid',
+        gridTemplateRows: 'repeat(3, 1fr)',
+        gridRowGap: '20px',
+        gridColumnGap: '10px',
+        gridTemplateColumns: 'repeat(3, 30%)'}}>
          {
            this.props.goodList.map((item,index) => { //这个地方通过this.this.props.arr接收到父组件传过来的arr，然后在{}里面进行js的循环
           return (
@@ -84,9 +118,9 @@ class PaperSheet extends React.Component {
                     style={{marginBottom:"20px",
                     padding: ".5rem",
                     margin:'.2rem',
-                    // flexGrow: '1',
+                    fontSize: '14px',
                             display: this.props.id === item.cid ? "block":"none",
-                          width: "30%"}}
+                          width: "100%"}}
                     key={item.id}>
                     {/* {this.props.id} */}
 
@@ -94,7 +128,7 @@ class PaperSheet extends React.Component {
 
                 <CardImg src={"http://139.9.244.125:8550/app-service" + item.picture  } className="someTestImg" ></CardImg>
                 {/* <CardImg alt="..." src={"https://picsum.photos/id/1025/4951/3301"} className="someTestImg" ></CardImg> */}
-              </div>
+              </div >
                 {item.name}
                 <br/>
 
@@ -113,29 +147,19 @@ class PaperSheet extends React.Component {
                       size="sm"
                       id="tooltip348236073"
                       onClick={
-                        () => {
+                       async () => {
                           // console.log(this.props.onbuyAnimal())
+                          await this.onRestart()
                           return  that.jiali(item, index)
                         }
                       }>
                 <span className="btn-inner--icon">
-                {/* <TweenOne
-                animation={{
-                  x: 20,
-                  repeat: 1, // demo 演示需要
-                  yoyo: true,
-                  repeat: this.state.buyState[index] ?  -1 : 0,
-                  duration: 1000
-                }}
-                paused={this.props.paused}
-                style={{ transform: 'translateX(-80px)' }}
-                className="ni ni-cart"
-              /> */}
                   <i className="ni ni-fat-add" />
                 </span>
                 <span >加入{this.state.buyState[index]}</span>
               </Button>
 
+              {/* <Button type="primary" onClick={this.onRestart}>restart</Button> */}
               </Grid>
               {/* <Typography component="p">
                 {item.des}
@@ -144,47 +168,20 @@ class PaperSheet extends React.Component {
           )
           })
         }
+        <TweenOne
+            animation={this.state.animation}
+            paused={this.state.paused}
+            reverse={this.state.reverse}
+            moment={this.state.moment}
+            style={{ position: 'fixed',zIndex:'-1', top:'0' }}
+            className="ni ni-folder-17"
+            onChange={()=> {
+              // console.log('sasas')
+            }}
+          />
       </div>
     );
   }
 }
-class Demo extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.moment = null;
-    this.animation = [
-      { left: '-40%' },
-      { left: '40%' },
-      { top: '60px' },
-      { scale: 0.7 },
-      { scale: 1 },
-      { top: 0 },
-      { left: '0%' },
-    ];
-  }
-
-
-  render() {
-    return (
-      <TweenOne
-        animation={this.animation}
-        paused={this.props.paused}
-        repeat={-1} // demo 演示需要，时间轴循环
-        yoyo // demo 演示需要，时间轴循环
-        style={{ transform: 'scale(1)' }}
-        className="code-box-shape"
-      />
-    );
-  }
-}
-Demo.propTypes = {
-  children: PropTypes.any,
-  className: PropTypes.string,
-  paused: PropTypes.bool,
-};
-// PaperSheet.propTypes = {
-//   this.state.classes: PropTypes.object.isRequired,
-// };
 
 export default withStyles(styles)(PaperSheet);

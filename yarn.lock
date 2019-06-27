@@ -1089,6 +1089,117 @@
   resolved "https://registry.npm.taobao.org/@nodelib/fs.stat/download/@nodelib/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha1-K1o6s/kYzKSKjHVMCBaOPwPrphs=
 
+"@pile-ui/alert@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/alert/-/alert-2.0.6-alpha.0.tgz#b00938228717100a761c8b82797dc8093e1fdb05"
+  integrity sha512-lYqjyFVklXMC2Y0qjBcTUoKOQXkna85QPEOT09n1o9ALWEz0r5TWBP6is/hzumuOMkrAAWNqUJX5Hd/NDfNeoQ==
+  dependencies:
+    "@pile-ui/shared" "^2.0.6-alpha.0"
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+    rc-animate "^2.6.0"
+    react-transition-group "^2.6.1"
+
+"@pile-ui/button@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/button/-/button-2.0.6-alpha.0.tgz#0ca6b2023d7e1a042769f10bf74a5cbec2b4eda1"
+  integrity sha512-hBpzrknRTN5zGg3GXM+2z52qL5qdncYDIi5tQpDIau05WuvKAMRz6L8SgnZmkD3UXYEvZXS+OsL6guuOORkt5g==
+  dependencies:
+    "@pile-ui/condition" "^2.0.6-alpha.0"
+    "@pile-ui/shared" "^2.0.6-alpha.0"
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+
+"@pile-ui/condition@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/condition/-/condition-2.0.6-alpha.0.tgz#67a3b87ceb1b277c29e9e2249632650f25f4e565"
+  integrity sha512-C+cJkHwBqtTqktwV0q7UqHdAiEJ+cUv6TE6xe3pZOZgeL7sOCe6pmym8ddSYYOHeaTdI6IBxNKhPkqC7q7J1Dw==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@pile-ui/confirm@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/confirm/-/confirm-2.0.6-alpha.0.tgz#b397239ebccdd68bac7160cf14e8444354aae606"
+  integrity sha512-P2/E7UQvjHDBEqeW82vo29cmTxm2fUP4HYyHT22xETgIO10CC9y25ZdQumo9oWgzJMTvd7jkj1L1A+DUs0x/iw==
+  dependencies:
+    "@pile-ui/shared" "^2.0.6-alpha.0"
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+    react-transition-group "^4.0.0"
+
+"@pile-ui/field@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/field/-/field-2.0.6-alpha.0.tgz#c11c28791c378518c118a591403465f70a00affa"
+  integrity sha512-J5PCjI4qd7wf0aZdpzMdHBUa7Zopb90y8NJICyTrt9to0tdZ/I8gAsbWjY2mlq1Id0W79jLmPESw/YuLCxm25w==
+  dependencies:
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+
+"@pile-ui/icon@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/icon/-/icon-2.0.6-alpha.0.tgz#d198eb1ca230b9a7bd950914f2c085c666f4188f"
+  integrity sha512-8NbUrR17n/ATx3Xcj74KEcliWEQ8AiFAMRuyu8ltoFaK1JZ66bzRvLN9xsITNMW+qTsmBfCz85s9odT1Zy3MaA==
+  dependencies:
+    "@pile-ui/shared" "^2.0.6-alpha.0"
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+
+"@pile-ui/inputfiled@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/inputfiled/-/inputfiled-2.0.6-alpha.0.tgz#d99786a4599a39755c9452880f969816adb192b0"
+  integrity sha512-1tuc8v9Ro2D30TlrO95Dq5cYYR86T2uJN7vSPJ57KXA/eDaF/WtihVCOqAvaQlzWEUEw9UWoYFedIA6cyAiqgA==
+  dependencies:
+    "@pile-ui/condition" "^2.0.6-alpha.0"
+    "@pile-ui/icon" "^2.0.6-alpha.0"
+    "@pile-ui/shared" "^2.0.6-alpha.0"
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+
+"@pile-ui/radio@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/radio/-/radio-2.0.6-alpha.0.tgz#c6d1bf613f2b83d6f53632cc0af7e5602f578cb5"
+  integrity sha512-R+W2+1OOzA4HbhJdokrMjLcmhYfpu3ngiCJDhPMnUbWtv9FEqd96kFJzHHw+zOgf6pX9TvRqeyMuuNZecTrDBg==
+  dependencies:
+    "@pile-ui/condition" "^2.0.6-alpha.0"
+    "@pile-ui/shared" "^2.0.6-alpha.0"
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+    recompose "^0.30.0"
+
+"@pile-ui/shared@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/shared/-/shared-2.0.6-alpha.0.tgz#eac7eb78627cb4e6416b98d6df598274ec48465b"
+  integrity sha512-xLwY74Ssb43tIuuiyMM+R5SrYuxpFFwwxwLXsfb0UUhplJQcRzo975/TvcV55WpPhcr9AAvfJQnpJggyOKBqdg==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@pile-ui/switch@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/switch/-/switch-2.0.6-alpha.0.tgz#19b50263119e39b74d2eef4d75284840a7ac8fad"
+  integrity sha512-kp/B0CAKXoFCZYsMDCdsZfB70jI1gFN+/NGC5QKo8uhAjCUa/n2UUWzFa1puWquMe63T5pHn+ddknioDqohzPw==
+  dependencies:
+    "@pile-ui/shared" "^2.0.6-alpha.0"
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+
+"@pile-ui/toast@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/toast/-/toast-2.0.6-alpha.0.tgz#f54561c7a6108c866b46539bb3214ebb35697440"
+  integrity sha512-QkY2IG/aVk58GXPyVT9fpLjH//9P8D+WaPCPlFN0WKk9xjgJgRc3y3aq3cyHutEYYCYAOSZvWAUgD2QAv0HuXA==
+  dependencies:
+    "@pile-ui/icon" "^2.0.6-alpha.0"
+    "@pile-ui/shared" "^2.0.6-alpha.0"
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+
+"@pile-ui/validator@^2.0.6-alpha.0":
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pile-ui/validator/-/validator-2.0.6-alpha.0.tgz#9c38109b10e0e0ab02c6dde1f57d22f13885270c"
+  integrity sha512-V+Ai8A4fsGG0KiXQbK5ErMSegLY6kP5KzWSeGtuQ4fNwL6X3fkGojoHK3DYn7u1cT6yyr7tJRfj41ftSpynaKg==
+  dependencies:
+    classnames "^2.2.6"
+    prop-types "^15.7.2"
+
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
   resolved "https://registry.npm.taobao.org/@svgr/babel-plugin-add-jsx-attribute/download/@svgr/babel-plugin-add-jsx-attribute-4.2.0.tgz#dadcb6218503532d6884b210e7f3c502caaa44b1"
@@ -2829,10 +2940,22 @@ commondir@^1.0.1:
   resolved "https://registry.npm.taobao.org/commondir/download/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
   integrity sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=
 
+component-classes@^1.2.5:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/component-classes/-/component-classes-1.2.6.tgz#c642394c3618a4d8b0b8919efccbbd930e5cd691"
+  integrity sha1-xkI5TDYYpNiwuJGe/Mu9kw5c1pE=
+  dependencies:
+    component-indexof "0.0.3"
+
 component-emitter@^1.2.1:
   version "1.3.0"
   resolved "https://registry.npm.taobao.org/component-emitter/download/component-emitter-1.3.0.tgz#16e4070fba8ae29b679f2215853ee181ab2eabc0"
   integrity sha1-FuQHD7qK4ptnnyIVhT7hgasuq8A=
+
+component-indexof@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/component-indexof/-/component-indexof-0.0.3.tgz#11d091312239eb8f32c8f25ae9cb002ffe8d3c24"
+  integrity sha1-EdCRMSI5648yyPJa6csAL/6NPCQ=
 
 compressible@~2.0.16:
   version "2.0.17"
@@ -3114,6 +3237,14 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
     randomfill "^1.0.3"
+
+css-animation@^1.3.2:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/css-animation/-/css-animation-1.5.0.tgz#c96b9097a5ef74a7be8480b45cc44e4ec6ca2bf5"
+  integrity sha512-hWYoWiOZ7Vr20etzLh3kpWgtC454tW5vn4I6rLANDgpzNSkO7UfOqyCEeaoBSG9CYWQpRkFWTWbWW8o3uZrNLw==
+  dependencies:
+    babel-runtime "6.x"
+    component-classes "^1.2.5"
 
 css-blank-pseudo@^0.1.4:
   version "0.1.4"
@@ -6701,6 +6832,16 @@ lodash.flow@^3.5.0:
   resolved "https://registry.npm.taobao.org/lodash.flow/download/lodash.flow-3.5.0.tgz#87bf40292b8cf83e4e8ce1a3ae4209e20071675a"
   integrity sha1-h79AKSuM+D5OjOGjrkIJ4gBxZ1o=
 
+lodash.isboolean@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz#6c2e171db2a257cd96802fd43b01b20d5f5870f6"
+  integrity sha1-bC4XHbKiV82WgC/UOwGyDV9YcPY=
+
+lodash.isempty@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
+  integrity sha1-b4bL7di+TsmHvpqvM8loTbGzHn4=
+
 lodash.isfunction@^3.0.9:
   version "3.0.9"
   resolved "https://registry.npm.taobao.org/lodash.isfunction/download/lodash.isfunction-3.0.9.tgz#06de25df4db327ac931981d1bdb067e5af68d051"
@@ -7977,7 +8118,7 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-performance-now@^2.1.0:
+performance-now@^2.0.0, performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npm.taobao.org/performance-now/download/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
@@ -7996,6 +8137,22 @@ pify@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npm.taobao.org/pify/download/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha1-SyzSXFDVmHNcUCkiJP2MbfQeMjE=
+
+pile-ui@^2.0.6-alpha.0:
+  version "2.0.6-alpha.0"
+  resolved "https://registry.yarnpkg.com/pile-ui/-/pile-ui-2.0.6-alpha.0.tgz#e217c79b4f6ef09f89ada4248cc991a5453c42f0"
+  integrity sha512-zl7wOUD8budLGLBTIOacTKa57U9XS8TFj1tmuOlQgkXIbIY4zc9mFqJfYmq/fJjPE2oxvfDBqULFPT1/tL2g7w==
+  dependencies:
+    "@pile-ui/alert" "^2.0.6-alpha.0"
+    "@pile-ui/button" "^2.0.6-alpha.0"
+    "@pile-ui/confirm" "^2.0.6-alpha.0"
+    "@pile-ui/field" "^2.0.6-alpha.0"
+    "@pile-ui/icon" "^2.0.6-alpha.0"
+    "@pile-ui/inputfiled" "^2.0.6-alpha.0"
+    "@pile-ui/radio" "^2.0.6-alpha.0"
+    "@pile-ui/switch" "^2.0.6-alpha.0"
+    "@pile-ui/toast" "^2.0.6-alpha.0"
+    "@pile-ui/validator" "^2.0.6-alpha.0"
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
@@ -8779,7 +8936,7 @@ prompts@^0.1.9:
     kleur "^2.0.1"
     sisteransi "^0.1.1"
 
-prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.x, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -8968,6 +9125,18 @@ raw-body@2.3.3:
     http-errors "1.6.3"
     iconv-lite "0.4.23"
     unpipe "1.0.0"
+
+rc-animate@^2.6.0:
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/rc-animate/-/rc-animate-2.8.3.tgz#80d45402f35d3617276fc14810fb8a635fe90dc0"
+  integrity sha512-VPSHJF/PW9zrPVCdQ94/YOI2lFfJVlaiAeQveJN2nlPVMivgvXkuFJyfe42GbZqm+qlnRjH9B4WbY9rCZz9miw==
+  dependencies:
+    babel-runtime "6.x"
+    classnames "^2.2.6"
+    css-animation "^1.3.2"
+    prop-types "15.x"
+    raf "^3.4.0"
+    react-lifecycles-compat "^3.0.4"
 
 rc-queue-anim@^1.6.12:
   version "1.6.12"
@@ -9271,7 +9440,7 @@ react-stopwatch@^2.0.3:
   dependencies:
     ms "^2.1.1"
 
-react-transition-group@^2.2.1, react-transition-group@^2.3.1:
+react-transition-group@^2.2.1, react-transition-group@^2.3.1, react-transition-group@^2.6.1:
   version "2.9.0"
   resolved "https://registry.npm.taobao.org/react-transition-group/download/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"
   integrity sha1-35zbAleWIRFRpDbGmo87l7WwfI0=
@@ -9388,7 +9557,7 @@ realpath-native@^1.0.0:
   dependencies:
     util.promisify "^1.0.0"
 
-"recompose@0.28.0 - 0.30.0":
+"recompose@0.28.0 - 0.30.0", recompose@^0.30.0:
   version "0.30.0"
   resolved "https://registry.npm.taobao.org/recompose/download/recompose-0.30.0.tgz#82773641b3927e8c7d24a0d87d65aeeba18aabd0"
   integrity sha1-gnc2QbOSfox9JKDYfWWu66GKq9A=
@@ -10281,6 +10450,17 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
+statman-stopwatch@^2.8.2:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/statman-stopwatch/-/statman-stopwatch-2.8.2.tgz#82d8b13d0d9f97c0e35ce280ffde6c61c9ddffbe"
+  integrity sha512-STJ3w7S9YX2RB2YMl1DunV6R7fEWDa5KILzF1a/ENc7BM9VeuoZDqRZCuLhpHiB3V+HTgSVnCkQiR7AblcpRsA==
+  dependencies:
+    lodash.isboolean "^3.0.3"
+    lodash.isempty "^4.4.0"
+    performance-now "^2.0.0"
+    string-template "^1.0.0"
+    uuid "^3.3.2"
+
 "statuses@>= 1.4.0 < 2":
   version "1.5.0"
   resolved "https://registry.npm.taobao.org/statuses/download/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
@@ -10342,6 +10522,11 @@ string-length@^2.0.0:
   dependencies:
     astral-regex "^1.0.0"
     strip-ansi "^4.0.0"
+
+string-template@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/string-template/-/string-template-1.0.0.tgz#9e9f2233dc00f218718ec379a28a5673ecca8b96"
+  integrity sha1-np8iM9wA8hhxjsN5oopWc+zKi5Y=
 
 string-width@^1.0.1, string-width@^1.0.2:
   version "1.0.2"

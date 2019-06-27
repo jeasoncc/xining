@@ -15,6 +15,7 @@ import {
   Row,
   Col
 } from "reactstrap";
+import { Button } from "reactstrap";
 import { observable } from "mobx";
 class Navbars extends React.Component {
   constructor(props) {
@@ -44,19 +45,15 @@ class Navbars extends React.Component {
             <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
                北川河湿地公园
             </NavbarBrand>
-            <button
-              // aria-controls="navbar-default"
-              // aria-expanded={false}
-              // aria-label="Toggle navigation"
-              // className="navbar-toggler"
-              // data-target="#navbar-default"
-              // data-toggle="collapse"
-              // id="navbar-default"
+            {/* <button
               type="button"
-              onClick={this.toggle}
+
             >
               <span className="navbar-toggler-icon" />
-            </button>
+            </button> */}
+            {/* <Button color="secondary" size="sm" type="button" onClick={this.toggle} > */}
+                <i className="ni ni-circle-08" onClick={this.toggle} style={{fontSize:'1.5rem',color:'white'}}></i>
+            {/* </Button> */}
             <Collapse navbar toggler="#navbar-default"  isOpen={this.state.collapse}>
               <div className="navbar-collapse-header">
                 <Row>
@@ -111,7 +108,7 @@ class Navbars extends React.Component {
                       个人中心
                     </span>
                   </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     aria-controls="navbar-default"
                     // aria-expanded={false}
                     aria-label="Toggle navigation"
@@ -133,7 +130,7 @@ class Navbars extends React.Component {
                     <span className="nav-link-inner--text d-lg-none">
                       车辆管理
                     </span>
-                  </NavLink>
+                  </NavLink> */}
                 </NavItem>
                 {/* <NavItem>
                   <NavLink

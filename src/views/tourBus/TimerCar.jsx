@@ -53,8 +53,11 @@ class RentalCar extends Component {
                         limit="20:00:10"
                         onChange={({ hours, minutes, seconds }) => {
                         // do something
+                        console.log(hours)
+                        console.log(minutes)
+                        console.log(seconds)
                         }}
-                        onCallback={() => console.log('Finish')}
+                        onCallback={(res) => console.log(res)}
                         render={({ formatted, hours, minutes, seconds }) => {
                         return (
                             <div>
@@ -76,9 +79,9 @@ class RentalCar extends Component {
                     />
                     </blockquote>
                     <Container>
-                        <Button block color="success" size="lg"  tag={Link} to="/Shopping/timerCar/" >
+                        <Button block color="success" size="lg"  tag={Link} to="/Shopping/controllerCar/" >
                                         我要还车
-                                    </Button>
+                        </Button>
                     </Container>
                     {/* ); */}
             </Card>
