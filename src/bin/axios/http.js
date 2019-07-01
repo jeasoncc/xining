@@ -8,9 +8,9 @@ import { getKey, setKey } from "bin/cookie/base";
 // axios.defaults.baseURL = "http://localhost:8080/ArmyCreate/"; //配置接口地址
 // axios.defaults.baseImgURL = "http://localhost:8080";
 // axios.defaults.baseURL = "http://localhost:8550";
-// axios.defaults.baseURL = "http://139.9.244.125:8550/app-service";
+axios.defaults.baseURL = "http://139.9.244.125:8550/app-service";
 // axios.defaults.baseURL = "http://10.1.1.40:8550/app-service";
-axios.defaults.baseURL = "http://localhost:8585"; //配置接口地址
+// axios.defaults.baseURL = "http://localhost:8585"; //配置接口地址
 // axios.defaults.baseImgURL = "http://182.254.165.115:8080";
 
 const service = axios.create({
