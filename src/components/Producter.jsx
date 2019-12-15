@@ -110,6 +110,7 @@ class PaperSheet extends React.Component {
         gridTemplateRows: 'repeat(3, 1fr)',
         gridRowGap: '20px',
         gridColumnGap: '10px',
+        marginBottom:"17px",
         gridTemplateColumns: 'repeat(3, 30%)'}}>
          {
            this.props.goodList.map((item,index) => { //这个地方通过this.this.props.arr接收到父组件传过来的arr，然后在{}里面进行js的循环
@@ -117,7 +118,9 @@ class PaperSheet extends React.Component {
             <Paper className={this.state.classes.root} elevation={1}
                     style={{marginBottom:"20px",
                     padding: ".5rem",
-                    margin:'.2rem',
+                    position:"relative",
+                    margin:"0 0 17px 0 ",
+                    marginBottom:"17px!important",
                     fontSize: '14px',
                             display: this.props.id === item.cid ? "block":"none",
                           width: "100%"}}
@@ -145,6 +148,11 @@ class PaperSheet extends React.Component {
                       color="primary"
                       type="button"
                       size="sm"
+              style={{
+                      bottom:"-31px",
+                      left:0,
+                      position:"absolute"
+              }}
                       id="tooltip348236073"
                       onClick={
                        async () => {

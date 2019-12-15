@@ -6,7 +6,7 @@ import Fab from '@material-ui/core/Fab';
 import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import {Link} from "react-router-dom"
 // import { findGoodsCategory } from "bin/axios/user"
-import { getGoodsType,getGoodsByUser } from "bin/axios/goods";
+import { getGoodsType,getGoodsByUser, } from "bin/axios/goods";
 import {observer} from "mobx-react";
 // import Welcome from "./MobxTest"
 import goods from "store/goods.js"
@@ -102,6 +102,7 @@ var some = []
     addShoppingCar(prop) {
         prop.num = 1
         that.props.goods.addMygoods(prop);
+        console.log(that.props.goods.mygoods.length)
     }
     componentDidUpdate() {
     }
@@ -121,6 +122,11 @@ var some = []
                 position: "fixed",
                 bottom: "5rem",
                 zIndex: "100"}}>
+            <span style={{
+                position:"absolute",
+                zIndex:100000,
+                top:0
+            }}>{this.props.goods.mygoods.length}</span>
                     <ShoppingCart />
             </Fab>
             <Grid container >
@@ -132,7 +138,7 @@ var some = []
                     ></PinnedSubheaderList>
                 </Grid>
                 <Grid item xs={9}>
-                    <Grid   style={{ padding: 20,position: 'relative',
+                    <Grid   style={{ padding: "20px 20px 5rem 20px",position: 'relative',
                                                 overflow: 'auto',
                                                 maxHeight: "90vh", }}>
 

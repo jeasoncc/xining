@@ -4,12 +4,12 @@ import { getKey, setKey } from "bin/cookie/base";
 
 // axios.defaults.timeout = 5000; //响应时间
 // axios.defaults.headers.post["Content-Type"] =
-//   "application/x-www-form-urlencoded"; //配置请求头
+// "application/x-www-form-urlencoded"; //配置请求头
 // axios.defaults.baseURL = "http://localhost:8080/ArmyCreate/"; //配置接口地址
 // axios.defaults.baseImgURL = "http://localhost:8080";
-// axios.defaults.baseURL = "http://localhost:8550";
-axios.defaults.baseURL = "http://139.9.244.125:8550/app-service";
-// axios.defaults.baseURL = "http://10.1.1.40:8550/app-service";
+// axios.defaults.baseURL = "http://39.108.85.153:8550";
+ axios.defaults.baseURL = "http://139.9.244.125:8550/app-service";
+//   axios.defaults.baseURL = "http://10.1.1.40:8550/app-service";
 // axios.defaults.baseURL = "http://localhost:8585"; //配置接口地址
 // axios.defaults.baseImgURL = "http://182.254.165.115:8080";
 
